@@ -3,7 +3,7 @@ import React from 'react';
 function PrivacyPolicy() {
   return (
     <>
-      <section className="max-w-5xl bg-white dark:bg-slate-700 dark:text-white px-5 sm:px-10 md:px-24 border mx-auto py-16 gap-y-10 grid">
+      <section className="max-w-5xl bg-white  px-5 sm:px-10 md:px-24 border mx-auto py-16 gap-y-10 grid">
         <h1 className="text-3xl">Privacy Policy</h1>
         <p>Effective date : January 20, 2022</p>
         <p>Last update : October 20, 2022</p>

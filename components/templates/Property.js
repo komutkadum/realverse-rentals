@@ -22,6 +22,8 @@ function Property() {
 
               {/* <!-- start of the card -->        */}
               <PropertyCard />
+              <PropertyCard />
+              <PropertyCard />
               {/* <!-- end of the card --> */}
             </div>
             {/* <!-- end of left sidebar -->

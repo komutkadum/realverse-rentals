@@ -172,41 +172,34 @@ function Header() {
           </button>
           <div className="space-y-1 px-4 relative">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <a
-              href="#"
-              className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium"
-              aria-current="page"
-            >
-              <i className="fa-solid fa-clipboard-list is-size-3"></i>
-              &nbsp;&nbsp;List property
-            </a>
-
-            <a
-              href="#"
-              className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium"
-            >
-              <i className="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Login
-            </a>
-
-            <a
-              href="#"
-              className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium"
-            >
-              <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
-            </a>
-
-            <a
-              href="#"
-              className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium"
-            >
-              <div className="flex justify-between">
-                <span>
-                  <i className="fa-solid fa-briefcase is-size-3"></i>
-                  &nbsp;&nbsp;Activity
-                </span>
-                <i className="fa-solid fa-caret-down"></i>
-              </div>
-            </a>
+            <Link href="/property">
+              <a className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium">
+                <i className="fa-solid fa-clipboard-list is-size-3"></i>
+                &nbsp;&nbsp;List property
+              </a>
+            </Link>
+            <Link href="/login">
+              <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
+                <i className="fa-solid fa-right-to-bracket"></i>
+                &nbsp;&nbsp;Login
+              </a>
+            </Link>
+            <Link href="/signup">
+              <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
+                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
+              </a>
+            </Link>
+            <Link href="/activity">
+              <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
+                <div className="flex justify-between">
+                  <span>
+                    <i className="fa-solid fa-briefcase is-size-3"></i>
+                    &nbsp;&nbsp;Activity
+                  </span>
+                  <i className="fa-solid fa-caret-down"></i>
+                </div>
+              </a>
+            </Link>
           </div>
         </div>
       </nav>

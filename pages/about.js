@@ -1,15 +1,17 @@
 import Head from 'next/head';
 import Footer from '../components/navigation/Footer';
-import HomePage from '../components/templates/HomePage';
+import About from '../components/templates/About';
 
-export default function Home() {
+function about() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>About</title>
       </Head>
-      <HomePage />
+      <About />
       <Footer />
     </>
   );
 }
+
+export default about;

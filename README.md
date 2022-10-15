@@ -1,7 +1,10 @@
 # Realverse Rentals
 
 ## Commit Messages
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d391495211f9a02e602286fa82763bf2ab6b45b
 - build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
 - ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
 - docs: Documentation only changes

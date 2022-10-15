@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Accordion from '../components/utility/Accordion';
 
 function listproperty() {
   return (
@@ -6,7 +7,7 @@ function listproperty() {
       <Head>
         <title>List Property</title>
       </Head>
-      listproperty
+      <Accordion />
     </>
   );
 }

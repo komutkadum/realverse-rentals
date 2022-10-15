@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Accordion from '../utility/Accordion';
 
 function About() {
   return (
@@ -224,164 +225,34 @@ function About() {
       <div className="px-4 py-10 md:py-16 lg:py-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
           <div className="flex flex-col mb-16 text-center">
-            <Link href="/" className="mb-6 mx-auto">
-              <div className="flex items-center text-white justify-center w-12 h-12 rounded-full bg-indigo-600">
-                <svg
-                  className="w-10 h-10 text-deep-purple-accent-400"
-                  stroke="currentColor"
-                  viewBox="0 0 52 52"
-                >
-                  <polygon
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                    points="29 13 14 29 25 29 23 39 38 23 27 23"
-                  ></polygon>
-                </svg>
-              </div>
-            </Link>
             <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                 <span className="relative inline-block">
-                  <span className="relative">FAQ</span>
+                  <span className="relative font-header">FAQ</span>
                 </span>
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
+              <p className="text-base text-gray-700 md:text-xl font-medium font-para">
                 How can we help you?
               </p>
             </div>
           </div>
           <div className="space-y-4">
-            <div className="border rounded shadow-sm">
-              <button
-                type="button"
-                aria-label="Open item"
-                title="Open item"
-                className="flex items-center justify-between w-full p-4 focus:outline-none"
-              >
-                <p className="text-lg font-medium">
-                  The quick, brown fox jumps over a lazy dog?
-                </p>
-                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
-                  {/* <!-- Add "transform rotate-180" classes on svg, if is open" --> */}
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-3 text-gray-600 transition-transform duration-200"
-                  >
-                    <polyline
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeMiterlimit="10"
-                      points="2,7 12,17 22,7"
-                      strokeLinejoin="round"
-                    ></polyline>
-                  </svg>
-                </div>
-              </button>
-              {/* <!-- Show content if is open  --> */}
-              <div className="p-4 pt-0">
-                <p className="text-gray-700">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque rem aperiam, eaque ipsa quae.
-                </p>
-              </div>
-            </div>
-            <div className="border rounded shadow-sm">
-              <button
-                type="button"
-                aria-label="Open item"
-                title="Open item"
-                className="flex items-center justify-between w-full p-4 focus:outline-none"
-              >
-                <p className="text-lg font-medium">
-                  The first mate and his Skipper too will do?
-                </p>
-                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180"
-                  >
-                    <polyline
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeMiterlimit="10"
-                      points="2,7 12,17 22,7"
-                      strokeLinejoin="round"
-                    ></polyline>
-                  </svg>
-                </div>
-              </button>
-              {/* <!-- Show content if is open 
-              <div className="p-4 pt-0"><p className="text-gray-700">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.</p></div>
-              --> */}
-            </div>
-            <div className="border rounded shadow-sm">
-              <button
-                type="button"
-                aria-label="Open item"
-                title="Open item"
-                className="flex items-center justify-between w-full p-4 focus:outline-none"
-              >
-                <p className="text-lg font-medium">
-                  Is the Space Pope reptilian!?
-                </p>
-                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180"
-                  >
-                    <polyline
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeMiterlimit="10"
-                      points="2,7 12,17 22,7"
-                      strokeLinejoin="round"
-                    ></polyline>
-                  </svg>
-                </div>
-              </button>
-              {/* <!-- Show content if is open 
-              <div className="p-4 pt-0"><p className="text-gray-700">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.</p></div>
-              --> */}
-            </div>
-            <div className="border rounded shadow-sm">
-              <button
-                type="button"
-                aria-label="Open item"
-                title="Open item"
-                className="flex items-center justify-between w-full p-4 focus:outline-none"
-              >
-                <p className="text-lg font-medium">
-                  How much money you got on you?
-                </p>
-                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180"
-                  >
-                    <polyline
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeMiterlimit="10"
-                      points="2,7 12,17 22,7"
-                      strokeLinejoin="round"
-                    ></polyline>
-                  </svg>
-                </div>
-              </button>
-              {/* <!-- Show content if is open
-              <div className="p-4 pt-0"><p className="text-gray-700">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.</p></div>
-              --> */}
-            </div>
+            <Accordion
+              question="The quick, brown fox jumps over a lazy dog?"
+              answer="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+            />
+            <Accordion
+              question="The first mate and his Skipper too will do?"
+              answer="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+            />
+            <Accordion
+              question="The quick, brown fox jumps over a lazy dog?"
+              answer="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+            />
+            <Accordion
+              question="The quick, brown fox jumps over a lazy dog?"
+              answer="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae."
+            />
           </div>
         </div>
       </div>

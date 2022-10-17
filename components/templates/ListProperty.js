@@ -69,10 +69,12 @@ function ListProperty() {
     <>
       <div className="relative shadow-lg bg-white rounded-md border p-6 lg:p-10 m-4  font-para max-w-2xl mx-2 sm:mx-auto">
         <form onSubmit={onSubmit}>
-          <div className="absolute top-2 right-2 bg-indigo-600 p-2 rounded-lg text-white">
-            {currentStepIndex + 1} / {steps.length}
+          <div className=" text-center rounded-lg pb-5">
+            <span className="badge inline bg-indigo-600 p-2 text-white text-lg">
+              {currentStepIndex + 1} / {steps.length}
+            </span>
           </div>
-          <div className="grid gap-y-10">{step}</div>
+          <div className="grid gap-y-10 text-sm">{step}</div>
           <div className="mt-10 flex gap-4 justify-between">
             {!isFirstStep && (
               <button

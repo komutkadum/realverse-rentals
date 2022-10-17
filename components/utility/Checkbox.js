@@ -2,7 +2,7 @@ import React from 'react';
 
 function Checkbox({ id, name, text }) {
   return (
-    <div>
+    <div className="mt-1.5">
       <input type="radio" id={id} className="peer hidden" name={name} />
       <label htmlFor={id} className="custom_checkbox">
         {text}

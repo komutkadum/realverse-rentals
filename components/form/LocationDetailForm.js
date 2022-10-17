@@ -30,7 +30,7 @@ function LocationDetailForm() {
       </div>
       {/* end of property type */}
       {/* property type */}
-      <div className="grid grid-cols-12 gap-x-3">
+      <div className="grid grid-cols-12 gap-x-3 gap-y-10">
         <div className="col-span-12 md:col-span-4">
           <label className="font-semibold">Flat No *</label>
           <div className="flex gap-2 mt-1 tracking-wider font-semibold">

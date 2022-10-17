@@ -6,7 +6,7 @@ function Tele({ currentStep }) {
   const pending = 'border-2 border-gray-400';
   return (
     <>
-      <div className="border-2  font-medium  border-gray-300  grid grid-cols-12 max-w-5xl mx-auto bg-white">
+      <div className="border-2  font-medium  border-gray-300   max-w-5xl mx-auto bg-white">
         <div className="flex col-span-4 border-r px-4 py-3 items-center gap-2">
           <div
             className={` p-5 ${complete} grid place-items-center relative  rounded-full`}

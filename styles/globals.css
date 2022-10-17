@@ -18,6 +18,11 @@ body {
 .font-para {
   font-family: 'Open Sans', sans-serif;
 }
+/* add * after */
+.add_asterisk_after::after {
+  content: ' *';
+  color: red;
+}
 /* media scroller */
 .media-scroller {
   display: grid;

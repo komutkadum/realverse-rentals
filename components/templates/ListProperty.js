@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMultistepForm } from '../../hooks/useMultistepForm';
 import AmenitiesDetailForm from '../form/AmenitiesDetailForm';
@@ -5,6 +6,7 @@ import BasicDetailForm from '../form/BasicDetailForm';
 import LocationDetailForm from '../form/LocationDetailForm';
 import PhotoForm from '../form/PhotoForm';
 import PropertyDetailForm from '../form/PropertyDetailForm';
+import TimelineStep from '../utility/TimelineStep';
 
 const INITIAL_DATA = {
   // basic details
@@ -22,7 +24,6 @@ const INITIAL_DATA = {
   securityDeposit: '',
   area: '',
   carpetArea: '',
-  offers: '',
   preferedTenantType: '',
   // locationform
   city: '',
@@ -45,6 +46,7 @@ const INITIAL_DATA = {
 
 function ListProperty() {
   const [data, setData] = useState(INITIAL_DATA);
+  const router = useRouter();
   function updateFields(fields) {
     setData((prev) => {
       return { ...prev, ...fields };
@@ -64,18 +66,29 @@ function ListProperty() {
     if (!isLastStep) return next();
     // submit
     alert('Succesful account creation');
+    setTimeout(() => {
+      router.push('/');
+    }, 3000);
   };
   return (
     <>
-      <div className="relative shadow-lg bg-white rounded-md border p-6 lg:p-10 m-4  font-para max-w-2xl mx-2 sm:mx-auto">
-        <form onSubmit={onSubmit}>
-          <div className=" text-center rounded-lg pb-5">
+      <main className="relative md:p-6 m-4  font-para max-w-5xl mx-auto px-2 py-6 grid grid-cols-12">
+        <div className="col-span-12 hidden md:block md:col-span-4">
+          <div className="sticky top-20 md:top-32">
+            <TimelineStep currentStepIndex={currentStepIndex} />
+          </div>
+        </div>
+        <form
+          onSubmit={onSubmit}
+          className="col-span-12 relative md:col-span-8 bg-white shadow-lg px-4"
+        >
+          <div className="absolute -top-4 text-center rounded-lg pb-5">
             <span className="badge inline bg-indigo-600 p-2 text-white text-lg">
               {currentStepIndex + 1} / {steps.length}
             </span>
           </div>
-          <div className="grid gap-y-10 text-sm">{step}</div>
-          <div className="mt-10 flex gap-4 justify-between">
+          <section className="grid gap-y-10 mt-10 text-sm">{step}</section>
+          <div className="mt-10 mb-5 flex gap-4 justify-between">
             {!isFirstStep && (
               <button
                 type="button"
@@ -89,11 +102,11 @@ function ListProperty() {
               type="submit"
               className={`primary_button w-full ${isLastStep && 'bg-red-700'}`}
             >
-              {isLastStep ? 'Finish' : 'Next'}
+              {isLastStep ? 'Finish' : 'continue'}
             </button>
           </div>
         </form>
-      </div>
+      </main>
     </>
   );
 }

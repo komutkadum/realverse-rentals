@@ -5,7 +5,9 @@ function PropertyDetailForm() {
     <>
       {/* property type */}
       <div>
-        <label className="font-semibold">Lock in Period *</label>
+        <label className="font-semibold add_asterisk_after">
+          Lock in Period{' '}
+        </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input type="number" className="form" placeholder="Lock in Period" />
         </div>
@@ -13,7 +15,7 @@ function PropertyDetailForm() {
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Facing *</label>
+        <label className="font-semibold add_asterisk_after">Facing </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="north_facing" name="facing" text="North" />
           <Checkbox id="east_facing" name="facing" text="East" />
@@ -28,7 +30,7 @@ function PropertyDetailForm() {
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Address *</label>
+        <label className="font-semibold add_asterisk_after">Address </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input type="text" className="form" placeholder="" />
         </div>
@@ -36,7 +38,7 @@ function PropertyDetailForm() {
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Servant Room</label>
+        <label className="font-semibold ">Servant Room</label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="yes_servantRoom" name="servantRoom" text="Yes" />
           <Checkbox id="no_servantRoom" name="servantRoom" text="No" />
@@ -45,7 +47,9 @@ function PropertyDetailForm() {
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Property Description *</label>
+        <label className="font-semibold add_asterisk_after">
+          Property Description{' '}
+        </label>
         <div className=" gap-2 mt-1 font-semibold">
           <input type="text" className="form" placeholder="" />
           <label className="font-normal text-xs font-para ">

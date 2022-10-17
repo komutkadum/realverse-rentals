@@ -1,30 +1,14 @@
 import React from 'react';
 import Checkbox from '../utility/Checkbox';
 
-function BasicDetailForm({
-  propertyType,
-  propertyAge,
-  rooms,
-  bathrooms,
-  balcony,
-  furnishedType,
-  coveredParking,
-  openParking,
-  availableForm,
-  monthlyRent,
-  maintenanceCharge,
-  securityDeposit,
-  area,
-  carpetArea,
-  offers,
-  preferedTenantType,
-  updateFields,
-}) {
+function BasicDetailForm() {
   return (
     <>
       {/* property type */}
       <div>
-        <label className="font-semibold">Property Type *</label>
+        <label className="font-semibold add_asterisk_after">
+          Property Type
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="apartment" name="propertyType" text="Apartment" />
           <Checkbox id="villa" name="propertyType" text="Villa" />
@@ -43,7 +27,9 @@ function BasicDetailForm({
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Age of Property *</label>
+        <label className="font-semibold add_asterisk_after">
+          Age of Property{' '}
+        </label>
         <div className="flex  gap-2 mt-1 tracking-wider font-semibold">
           <input
             type="number"
@@ -55,7 +41,7 @@ function BasicDetailForm({
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">BHK *</label>
+        <label className="font-semibold add_asterisk_after">BHK </label>
         <div className="flex flex-wrap  gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="onerk" name="rooms" text="1RK" />
           <Checkbox id="onebhk" name="rooms" text="1BHK" />
@@ -67,7 +53,7 @@ function BasicDetailForm({
       {/* end of property type */}
       {/* property type */}
       <div>
-        <label className="font-semibold">Bathroom *</label>
+        <label className="font-semibold add_asterisk_after">Bathroom </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="zero_bathroom" name="bathroom" text="0" />
           <Checkbox id="one_bathroom" name="bathroom" text="1" />
@@ -79,7 +65,7 @@ function BasicDetailForm({
       {/* end of property type */}
       {/* balcony type */}
       <div>
-        <label className="font-semibold">Balcony *</label>
+        <label className="font-semibold add_asterisk_after">Balcony </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="zero_balcony" name="balcony" text="0" />
           <Checkbox id="one_balcony" name="balcony" text="1" />
@@ -91,7 +77,9 @@ function BasicDetailForm({
       {/* end of balcony type */}
       {/* Furnished type */}
       <div>
-        <label className="font-semibold">Furnished Type *</label>
+        <label className="font-semibold add_asterisk_after">
+          Furnished Type{' '}
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox
             id="fully_furnished"
@@ -109,7 +97,9 @@ function BasicDetailForm({
       {/* end of Furnished type */}
       {/* Covered Parking type */}
       <div>
-        <label className="font-semibold">Covered Parking *</label>
+        <label className="font-semibold add_asterisk_after">
+          Covered Parking{' '}
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="zero_covered_parking" name="coveredParking" text="0" />
           <Checkbox id="one_covered_parking" name="coveredParking" text="1" />
@@ -121,7 +111,9 @@ function BasicDetailForm({
       {/* end of Covered Parking type */}
       {/* Open parking type */}
       <div>
-        <label className="font-semibold">Open Parking *</label>
+        <label className="font-semibold add_asterisk_after">
+          Open Parking{' '}
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox id="zero_open_parking" name="openParking" text="0" />
           <Checkbox id="one_open_parking" name="openParking" text="1" />
@@ -133,7 +125,9 @@ function BasicDetailForm({
       {/* end of Open parking type */}
       {/* Available from type */}
       <div>
-        <label className="font-semibold">Available From *</label>
+        <label className="font-semibold add_asterisk_after">
+          Available From{' '}
+        </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input type="date" className="form" />
         </div>
@@ -141,7 +135,9 @@ function BasicDetailForm({
       {/* end of Available from type */}
       {/* Available from type */}
       <div>
-        <label className="font-semibold">Monthly Rent *</label>
+        <label className="font-semibold add_asterisk_after">
+          Monthly Rent{' '}
+        </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input type="number" className="form" placeholder="monthly rent" />
         </div>
@@ -149,7 +145,9 @@ function BasicDetailForm({
       {/* end of Available from type */}
       {/* Available from type */}
       <div>
-        <label className="font-semibold">Maintenance Charge *</label>
+        <label className="font-semibold add_asterisk_after">
+          Maintenance Charge{' '}
+        </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input
             type="number"
@@ -161,7 +159,9 @@ function BasicDetailForm({
       {/* end of Available from type */}
       {/* Open parking type */}
       <div>
-        <label className="font-semibold">Do you take security deposit *</label>
+        <label className="font-semibold add_asterisk_after">
+          Do you take security deposit{' '}
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox
             id="yes_securityDeposit"
@@ -174,7 +174,9 @@ function BasicDetailForm({
       {/* end of Open parking type */}
       {/* Available from type */}
       <div>
-        <label className="font-semibold">Built Up Area *</label>
+        <label className="font-semibold add_asterisk_after">
+          Built Up Area{' '}
+        </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input
             type="number"
@@ -191,20 +193,11 @@ function BasicDetailForm({
         </div>
       </div>
       {/* end of Available from type */}
-      {/* Available from type */}
-      <div>
-        <div className="flex gap-2 mt-1 tracking-wider font-semibold">
-          <input
-            type="text"
-            className="form"
-            placeholder="Offers - Increase leads on your property upto 50%"
-          />
-        </div>
-      </div>
-      {/* end of Available from type */}
       {/* Open parking type */}
       <div>
-        <label className="font-semibold">Prefered Tenant Type *</label>
+        <label className="font-semibold add_asterisk_after">
+          Prefered Tenant Type{' '}
+        </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
           <Checkbox
             id="family_preferedTenant"

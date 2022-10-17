@@ -81,6 +81,9 @@ body {
 @tailwind utilities;
 
 @layer components {
+  .form {
+    @apply relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm;
+  }
   .activity_active {
     @apply grid place-items-center overflow-hidden text-xs sm:text-sm p-2 text-center items-center font-bold col-span-3 cursor-pointer rounded-lg border border-indigo-600 bg-indigo-100 hover:border-indigo-600;
   }
@@ -89,6 +92,10 @@ body {
   }
   .badge {
     @apply px-3 py-1 text-xs rounded-full bg-gray-100 border border-indigo-300 flex;
+  }
+
+  .custom_checkbox {
+    @apply px-4 py-2 cursor-pointer text-xs rounded-full bg-gray-100 border border-indigo-300 inline peer-checked:bg-indigo-600 font-semibold  peer-checked:text-white;
   }
   .primary_button {
     @apply rounded-md px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;

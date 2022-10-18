@@ -7,7 +7,7 @@ function HomePage() {
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
-        <div className="max-w-7xl px-4 py-5 mx-3 sm:px-8 sm:py-8 rounded-md bg-white absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
+        <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
           <form
             className="grid grid-cols-12 gap-2 sm:gap-2"
             onSubmit={(e) => e.preventDefault()}

@@ -1,15 +1,16 @@
 import React from 'react';
 
-function Checkbox({ text, id, name, value, updateCheckbox }) {
+function CustomRadio({ id, name, text, value, updateFields }) {
   return (
     <div className="mt-2.5">
       <input
-        type="checkbox"
+        type="radio"
         value={id}
-        checked={value.indexOf(id) >= 0}
-        onChange={(e) => updateCheckbox(e.target.value, name, id)}
         id={id}
         className="peer hidden"
+        name={name}
+        checked={value === id}
+        onChange={(e) => updateFields({ [name]: e.target.value })}
       />
       <label htmlFor={id} className="custom_checkbox">
         {text}
@@ -18,4 +19,4 @@ function Checkbox({ text, id, name, value, updateCheckbox }) {
   );
 }
 
-export default Checkbox;
+export default CustomRadio;

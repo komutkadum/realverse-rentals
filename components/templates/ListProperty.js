@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useMultistepForm } from '../../hooks/useMultistepForm';
 import AmenitiesDetailForm from '../form/AmenitiesDetailForm';
@@ -24,7 +23,7 @@ const INITIAL_DATA = {
   securityDeposit: '',
   area: '',
   carpetArea: '',
-  preferedTenantType: '',
+  preferedTenantType: [],
   // locationform
   city: '',
   buildingProjectSociety: '',
@@ -41,34 +40,42 @@ const INITIAL_DATA = {
   servantRoom: '',
   propertyDescription: '',
   // amenities
-  amenities: '',
+  amenities: [],
 };
 
 function ListProperty() {
   const [data, setData] = useState(INITIAL_DATA);
-  const router = useRouter();
+
+  const { steps, currentStepIndex, next, step, isFirstStep, isLastStep, back } =
+    useMultistepForm([
+      <BasicDetailForm
+        key={1}
+        {...data}
+        updateCheckbox={updateCheckbox}
+        updateFields={updateFields}
+      />,
+      <LocationDetailForm key={2} {...data} updateFields={updateFields} />,
+      <PhotoForm key={3} {...data} updateFields={updateFields} />,
+      <PropertyDetailForm key={4} {...data} updateFields={updateFields} />,
+      <AmenitiesDetailForm key={5} {...data} updateCheckbox={updateCheckbox} />,
+    ]);
   function updateFields(fields) {
     setData((prev) => {
       return { ...prev, ...fields };
     });
   }
-  const { steps, currentStepIndex, next, step, isFirstStep, isLastStep, back } =
-    useMultistepForm([
-      <BasicDetailForm key={1} {...data} updateFields={updateFields} />,
-      <LocationDetailForm key={2} {...data} updateFields={updateFields} />,
-      <PhotoForm key={3} {...data} updateFields={updateFields} />,
-      <PropertyDetailForm key={4} {...data} updateFields={updateFields} />,
-      <AmenitiesDetailForm key={5} {...data} updateFields={updateFields} />,
-    ]);
-
+  function updateCheckbox(fields, value, id) {
+    let temp = data;
+    if (temp[value].indexOf(id) < 0) temp[value].push(fields);
+    else temp[value] = temp[value].filter((item) => item !== id);
+    setData({ ...temp });
+  }
   const onSubmit = (e) => {
     e.preventDefault();
     if (!isLastStep) return next();
     // submit
+    console.log(data);
     alert('Succesful account creation');
-    setTimeout(() => {
-      router.push('/');
-    }, 3000);
   };
   return (
     <>

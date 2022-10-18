@@ -81,7 +81,7 @@ function TimelineStep({ currentStepIndex }) {
             }`}
           >
             {item.state === 'complete' ? (
-              <i class="fa-solid fa-check"></i>
+              <i className="fa-solid fa-check"></i>
             ) : (
               <>0{index + 1}</>
             )}

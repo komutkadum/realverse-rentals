@@ -70,8 +70,8 @@ function ListProperty() {
     else temp[value] = temp[value].filter((item) => item !== id);
     setData({ ...temp });
   }
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
+    // e.preventDefault();
     if (!isLastStep) return next();
     // submit
     console.log(data);
@@ -85,17 +85,17 @@ function ListProperty() {
             <TimelineStep currentStepIndex={currentStepIndex} />
           </div>
         </div>
-        <form
-          onSubmit={onSubmit}
-          className="col-span-12 relative md:col-span-8 bg-white shadow-lg px-4"
+        <div
+          // onSubmit={onSubmit}
+          className="col-span-12 relative md:col-span-8 flex flex-col justify-between bg-white shadow-lg px-4"
         >
-          <div className="absolute -top-4 text-center rounded-lg pb-5">
-            <span className="badge inline bg-indigo-600 p-2 text-white text-lg">
+          {/* <div className="absolute -top-4 text-center rounded-lg pb-5">
+            <span className="badge inline  p-2 text-lg">
               {currentStepIndex + 1} / {steps.length}
             </span>
-          </div>
+          </div> */}
           <section className="grid gap-y-10 mt-10 text-sm">{step}</section>
-          <div className="mt-10 mb-5 flex gap-4 justify-between">
+          <div className="mt-10 mb-5 flex gap-4 justify-between ">
             {!isFirstStep && (
               <button
                 type="button"
@@ -107,12 +107,15 @@ function ListProperty() {
             )}
             <button
               type="submit"
-              className={`primary_button w-full ${isLastStep && 'bg-red-700'}`}
+              onClick={onSubmit}
+              className={`primary_button_without_background ring-green-200 text-white bg-green-400 hover:bg-green-500 w-full ${
+                isLastStep && 'bg-red-700'
+              }`}
             >
               {isLastStep ? 'Finish' : 'continue'}
             </button>
           </div>
-        </form>
+        </div>
       </main>
     </>
   );

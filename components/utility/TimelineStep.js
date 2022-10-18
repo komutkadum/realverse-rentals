@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 const stateStyle = [
-  ['bg-indigo-600  text-white', ''],
+  // complete
+  ['bg-indigo-400  text-white', ''],
+  // current
   [
-    'bg-white text-indigo-600 border-2 font-semibold border-indigo-600',
-    'text-indigo-600',
+    'bg-white text-indigo-400 border-2 font-semibold border-indigo-400',
+    'text-indigo-400',
   ],
+  // pending
   [
     'bg-white  font-semibold text-gray-500 border-2 border-gray-400',
     'text-gray-500',

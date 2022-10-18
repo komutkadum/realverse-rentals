@@ -62,7 +62,7 @@ function Header() {
               </div>
             </div>
             <div className="absolute hidden sm:flex inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <Link href="/property">
+              <Link href="/listproperty">
                 <button type="button" className="primary_button">
                   <i className="fa-solid fa-clipboard-list"></i> List Property
                 </button>
@@ -172,7 +172,7 @@ function Header() {
           </button>
           <div className="space-y-1 px-4 relative">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <Link href="/property">
+            <Link href="/listproperty">
               <a className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium">
                 <i className="fa-solid fa-clipboard-list is-size-3"></i>
                 &nbsp;&nbsp;List property

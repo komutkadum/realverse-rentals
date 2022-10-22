@@ -1,30 +1,78 @@
+import axios from 'axios';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 
 function PhotoForm() {
   const inputFileRef = useRef();
   const [images, setImages] = useState([]);
-  const [present, setPresent] = useState(false);
   const onFileChangeCapture = (e) => {
     /*Selected files data can be collected here.*/
-    console.log(e.target.files);
-    setPresent(true);
+    for (const file of e.target.files) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        setImages((imgs) => [...imgs, reader.result]);
+      };
+      reader.onerror = () => {
+        console.log(reader.error);
+      };
+    }
+  };
+  const removeFile = (item) => {
+    setImages((prev) => prev.filter((value) => value !== item));
   };
   const onBtnClick = () => {
     /*Collecting node-element and performing click*/
     inputFileRef.current.click();
   };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const fileInput = Array.from(form.elements).find(
+      ({ name }) => name === 'theFiles'
+    );
+
+    const formData = new FormData();
+
+    for (const file of fileInput.files) {
+      formData.append('theFiles', file);
+    }
+
+    formData.append('upload_preset', 'my-uploads');
+    const config = {
+      headers: { 'content-type': 'multipart/form-data' },
+      onUploadProgress: (event) => {
+        console.log(
+          `Current progress:`,
+          Math.round((event.loaded * 100) / event.total)
+        );
+      },
+    };
+
+    const response = await axios.post('/api/image_upload', formData, config);
+    // const data = await fetch(
+    //   // 'https://api.cloudinary.com/v1_1/kadmon/image/upload',
+    //   '/api/image_upload',
+    //   {
+    //     method: 'POST',
+    //     body: formData,
+    //   }
+    // ).then((r) => r.json());
+    console.log(response.data);
+  };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <input
         type="file"
         ref={inputFileRef}
         multiple
+        name="theFiles"
+        accept=".jpg, .png, .jpeg"
         onChangeCapture={onFileChangeCapture}
         className="hidden"
       />
-      {present ? (
+      {images.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-4 font-para">
           <div className="w-36 h-36 border-dashed border bg-slate-50 border-indigo-400 grid place-items-center">
             {/* uploading container */}
@@ -40,8 +88,30 @@ function PhotoForm() {
               <p className="text-xs text-gray-500 font-semibold">+ Add More</p>
             </div>
           </div>
-          <div className="w-36 h-36 border"></div>
-          <div className="w-36 h-36 border"></div>
+
+          {images.map((item, index) => (
+            <div key={index} className="w-36 h-36 border relative">
+              <button
+                className="absolute z-20 text-red-600 grid place-items-center right-0 hover:bg-red-600 hover:text-white cursor-pointer shadow-lg w-5 h-5 bg-white"
+                onClick={() => removeFile(item)}
+              >
+                x
+              </button>
+              <Image
+                src={item}
+                width="144px"
+                height="144px"
+                className="object-cover opacity-70"
+                alt={item}
+              />
+            </div>
+          ))}
+          <button
+            onSubmit={handleSubmit}
+            className="block w-1/2 primary_button"
+          >
+            Upload
+          </button>
         </div>
       ) : (
         <div className="flex justify-center font-para flex-col border-2 bg-slate-50 border-indigo-400 border-dashed  md:mx-20">
@@ -69,7 +139,7 @@ function PhotoForm() {
           </div>
         </div>
       )}
-    </>
+    </form>
   );
 }
 

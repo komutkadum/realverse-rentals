@@ -57,7 +57,7 @@ function Header() {
               {/* <!--end of Mobile menu button--> */}
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-              <div className="flex flex-shrink-0 text-slate-700 items-center font-extrabold hover:text-slate-500 hover:underline hover:underline-offset-8 cursor-pointer text-2xl  font-header">
+              <div className="flex flex-shrink-0 text-slate-700 items-center font-extrabold hover:text-slate-500 hover:underline hover:underline-offset-8 cursor-pointer text-2xl  font-main">
                 <Link href="/">Realverse Rentals</Link>
               </div>
             </div>
@@ -107,26 +107,31 @@ function Header() {
                       <i className="fa-solid fa-user"></i>&nbsp;&nbsp;Profile
                     </a>
                   </Link>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="user-menu-item-0"
-                  >
-                    {' '}
-                    <i className="fa-solid fa-right-to-bracket"></i>
-                    &nbsp;&nbsp;Login
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                    role="menuitem"
-                    tabIndex="-1"
-                    id="user-menu-item-1"
-                  >
-                    <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
-                  </a>
+                  <Link href="/signin">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="user-menu-item-0"
+                    >
+                      {' '}
+                      <i className="fa-solid fa-right-to-bracket"></i>
+                      &nbsp;&nbsp;Login
+                    </a>
+                  </Link>
+                  <Link href="/register">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="user-menu-item-1"
+                    >
+                      <i className="fa-solid fa-user-plus"></i>
+                      &nbsp;&nbsp;Signup
+                    </a>
+                  </Link>
                   <Link href="/activity">
                     <a
                       href="#"

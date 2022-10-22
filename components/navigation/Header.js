@@ -183,13 +183,13 @@ function Header() {
                 &nbsp;&nbsp;List property
               </a>
             </Link>
-            <Link href="/login">
+            <Link href="/signin">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
                 <i className="fa-solid fa-right-to-bracket"></i>
                 &nbsp;&nbsp;Login
               </a>
             </Link>
-            <Link href="/signup">
+            <Link href="/signin">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
                 <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
               </a>

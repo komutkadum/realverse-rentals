@@ -8,7 +8,7 @@ function Signin() {
       <div className="flex  font-para items-center mt-5 sm:mt-7 md:mt-10 justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
-            <h1 className="text-center font-main text-3xl sm:text-5xl font-semibold ">
+            <h1 className="text-center font-main text-3xl sm:text-5xl font-extrabold tracking-wide hover:text-gray-700">
               <Link href="/">Realverse Rentals</Link>
             </h1>
 
@@ -118,6 +118,8 @@ function Signin() {
                   </div>
 
                   <div>
+                    <a href="/api/auth/login">lcikc</a>
+
                     <button
                       type="submit"
                       className="group relative flex w-full justify-center rounded-md border border-transparent bg-gray-400 py-2 px-4 text-sm font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"

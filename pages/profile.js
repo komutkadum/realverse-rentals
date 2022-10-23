@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import React from 'react';
 import Profile from '../components/templates/Profile';
@@ -13,4 +14,5 @@ function profile() {
   );
 }
 
+export const getServerSideProps = withPageAuthRequired();
 export default profile;

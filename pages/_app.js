@@ -1,3 +1,4 @@
+import { UserProvider } from '@auth0/nextjs-auth0';
 import Router, { useRouter } from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
@@ -12,10 +13,10 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <>
+    <UserProvider>
       {router.pathname !== '/signin' ? <Header /> : ''}
       <Component {...pageProps} />
-    </>
+    </UserProvider>
   );
 }
 

@@ -1,6 +1,8 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import ProfileSidebar from '../navigation/ProfileSidebar';
 
 function Profile() {
+  const { user } = useUser();
   return (
     <>
       <div className="">
@@ -17,14 +19,13 @@ function Profile() {
                   <input
                     type="text"
                     className="border-0 mb-2 border-b focus:outline-none focus:border-0"
-                    value="Kadum Komut"
-                    placeholder="Kadum Komut"
+                    value={user && user.name}
                   />
                   <label className="text-sm font-bold">Email</label>
                   <input
                     type="Email"
                     className="border-0 mb-2 border-b"
-                    value="kadumkomut2826"
+                    value={user && user.email}
                   />
                   <button className="primary_button_without p-3 w-1/2">
                     Save changes

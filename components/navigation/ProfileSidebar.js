@@ -1,8 +1,10 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 function ProfileSidebar() {
   const router = useRouter();
+  const { user } = useUser();
   return (
     <>
       {/* <!-- left sidebar --> */}
@@ -10,14 +12,14 @@ function ProfileSidebar() {
         <div className="sticky top-24 bg-white py-10 border rounded-xl">
           <div className="text-center">
             <img
-              src="/images/akshay.jfif"
+              src={user && user.picture}
               className="rounded-full w-32 mb-4 mx-auto ring-2 ring-offset-8 ring-indigo-600"
-              alt="Avatar"
+              alt={user && user.name}
             />
             <h5 className="text-xl font-medium leading-tight mb-2">
-              Kadum Komut
+              {user && user.name}
             </h5>
-            <p className="text-gray-500">kadumkomut2826@gmail.com</p>
+            <p className="text-gray-500">{user && user.email}</p>
           </div>
           <div className="relative bg-white  ">
             <div className="flex flex-col sm:flex-row sm:justify-around ">

@@ -14,6 +14,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Open+Sans&family=Ubuntu&display=swap"
           rel="stylesheet"
         />
+        <script
+          src="https://kit.fontawesome.com/cd76c07470.js"
+          crossOrigin="anonymous"
+          async
+        ></script>
       </Head>
       <body className="white">
         <Main />

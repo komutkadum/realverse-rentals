@@ -1,15 +1,14 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-html-link-for-pages */
+import { useUser } from '@auth0/nextjs-auth0';
 import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
 
 function Header() {
+  const { user, error, isLoading } = useUser();
+  console.log(user);
   return (
     <>
-      <Script
-        src="https://kit.fontawesome.com/cd76c07470.js"
-        crossOrigin="anonymous"
-      ></Script>
       <nav className="bg-white sticky top-0 z-20 shadow">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
@@ -78,11 +77,11 @@ function Header() {
                     aria-haspopup="true"
                   >
                     <span className="sr-only">Open user menu</span>
-                    <Image
+                    <img
                       className="h-8 w-8 rounded-full"
                       width="32"
                       height="32"
-                      src="/images/akshay.jfif"
+                      src={`${user ? user.picture : '/icons/user.png'}`}
                       alt="hello"
                     />
                   </button>
@@ -107,9 +106,9 @@ function Header() {
                       <i className="fa-solid fa-user"></i>&nbsp;&nbsp;Profile
                     </a>
                   </Link>
-                  <Link href="/signin">
+                  {user ? (
                     <a
-                      href="#"
+                      href="/api/auth/logout"
                       className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
                       role="menuitem"
                       tabIndex="-1"
@@ -117,21 +116,37 @@ function Header() {
                     >
                       {' '}
                       <i className="fa-solid fa-right-to-bracket"></i>
-                      &nbsp;&nbsp;Login
+                      &nbsp;&nbsp;Logout
                     </a>
-                  </Link>
-                  <Link href="/register">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="user-menu-item-1"
-                    >
-                      <i className="fa-solid fa-user-plus"></i>
-                      &nbsp;&nbsp;Signup
-                    </a>
-                  </Link>
+                  ) : (
+                    <>
+                      <Link href="/signin">
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                          role="menuitem"
+                          tabIndex="-1"
+                          id="user-menu-item-0"
+                        >
+                          {' '}
+                          <i className="fa-solid fa-right-to-bracket"></i>
+                          &nbsp;&nbsp;Login
+                        </a>
+                      </Link>
+                      <Link href="/signin">
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                          role="menuitem"
+                          tabIndex="-1"
+                          id="user-menu-item-1"
+                        >
+                          <i className="fa-solid fa-user-plus"></i>
+                          &nbsp;&nbsp;Signup
+                        </a>
+                      </Link>
+                    </>
+                  )}
                   <Link href="/activity">
                     <a
                       href="#"
@@ -208,7 +223,7 @@ function Header() {
           </div>
         </div>
       </nav>
-      <Script id="hello" src="/utils/functions.js" />
+      <Script id="hello" src="/utils/functions.js" strategy="lazyOnload" />
     </>
   );
 }

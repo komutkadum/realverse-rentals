@@ -4,7 +4,7 @@ import Accordion from '../utility/Accordion';
 function About() {
   return (
     <>
-      <section className="max-w-3xl px-4 mx-auto py-10 md:py-20 lg:py-36 ">
+      <section className="max-w-3xl px-4 mx-auto py-20 md:py-28 lg:py-36 ">
         <div className="text-center px-4 pb-10 font-header">
           <h2 className="text-lg font-semibold tracking-wider text-red-600">
             Our purpose
@@ -35,7 +35,7 @@ function About() {
       </section>
 
       <section className=" bg-slate-800">
-        <div className="max-w-5xl px-4 mx-auto py-10 md:py-20 lg:py-36 grid">
+        <div className="max-w-5xl px-4 mx-auto py-20 md:py-28 lg:py-36 grid">
           <h1 className="text-center font-bold text-lg text-red-400">
             Who we help
           </h1>
@@ -64,8 +64,9 @@ function About() {
               />
             </div>
           </div>
+
           <div className="grid gap-x-10 py-10 md:py-16 lg:py-24 items-center text-center md:text-left md:grid-cols-2">
-            <div>
+            <div className="hidden md:block">
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
                 src="/images/owner.jpg"
@@ -86,6 +87,13 @@ function About() {
                 vacancies, more quickly.
               </p>
               <hr className="mt-5 sm:mb-5 hidden lg:block border-gray-300" />
+            </div>
+            <div className="block md:hidden">
+              <img
+                className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
+                src="/images/owner.jpg"
+                alt=""
+              />
             </div>
           </div>
 
@@ -115,7 +123,7 @@ function About() {
         </div>
       </section>
 
-      <section className="max-w-3xl px-4 mx-auto py-10 md:py-20 lg:py-64">
+      <section className="max-w-3xl px-4 mx-auto py-24 md:py-32 lg:py-48">
         <div className="text-center px-4 pb-10 font-header">
           <h2 className="text-lg font-semibold tracking-wider text-red-600">
             Giving back
@@ -141,7 +149,7 @@ function About() {
       </section>
 
       <section className=" bg-white">
-        <div className="max-wxl px-4 mx-auto py-10 md:py-20 lg:py-40">
+        <div className="max-wxl px-4 mx-auto py-20 md:py-28 lg:py-40">
           <div className="text-center px-4 pb-10 font-header">
             <h2 className="text-lg font-semibold tracking-wider text-red-600">
               Core Team

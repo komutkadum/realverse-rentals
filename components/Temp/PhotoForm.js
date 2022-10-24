@@ -1,9 +1,6 @@
 import axios from 'axios';
-import { ImageCompressor } from 'compressor-img';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { dataURItoBlob } from '../../lib/dataURItoBlob';
 import Spinner from '../utility/Spinner';
 
 function PhotoForm() {
@@ -17,21 +14,13 @@ function PhotoForm() {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        new ImageCompressor({
-          onSuccess: (response) => {
-            setImages((imgs) => [...imgs, response.compressed]);
-          },
-          scale: 70,
-          quality: 70,
-          originalImage: reader.result,
-        });
+        setImages((imgs) => [...imgs, reader.result]);
       };
       reader.onerror = () => {
         console.log(reader.error);
       };
     }
   };
-
   const removeFile = (item) => {
     setImages((prev) => prev.filter((value) => value !== item));
   };
@@ -41,24 +30,31 @@ function PhotoForm() {
   };
   const handleSubmit = async (event) => {
     try {
-      let startTime = performance.now();
       event.preventDefault();
       setLoading(true);
+      const fileInput = Array.from(event.currentTarget.elements).find(
+        ({ name }) => name === 'theFiles'
+      );
       const formData = new FormData();
-      let temp = images;
-      for (let i = 0; i < temp.length; i++) {
-        formData.append('theFiles', dataURItoBlob(temp[i]), uuidv4());
+      for (const file of fileInput.files) {
+        formData.append('theFiles', file);
       }
+
       const response = await axios.post(
         'http://localhost:3001/profile-upload-multiple',
         formData
+        // {
+        //   headers: { 'content-type': 'multipart/form-data' },
+        //   onUploadProgress: (event) => {
+        //     console.log(
+        //       `Current progress:`,
+        //       Math.round((event.loaded * 100) / event.total)
+        //     );
+        //   },
+        // }
       );
       setUploadedImage(response.data);
       console.log(response.data);
-      let endTime = performance.now();
-      console.log(
-        `Call to doSomething took ${endTime - startTime} milliseconds`
-      );
     } catch (err) {
       console.log(err);
     } finally {

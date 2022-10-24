@@ -55,9 +55,9 @@ function ListProperty() {
         updateFields={updateFields}
       />,
       <LocationDetailForm key={2} {...data} updateFields={updateFields} />,
-      <PhotoForm key={3} {...data} updateFields={updateFields} />,
-      <PropertyDetailForm key={4} {...data} updateFields={updateFields} />,
-      <AmenitiesDetailForm key={5} {...data} updateCheckbox={updateCheckbox} />,
+      <PropertyDetailForm key={3} {...data} updateFields={updateFields} />,
+      <AmenitiesDetailForm key={4} {...data} updateCheckbox={updateCheckbox} />,
+      <PhotoForm key={5} {...data} updateFields={updateFields} />,
     ]);
   function updateFields(fields) {
     setData((prev) => {
@@ -89,12 +89,12 @@ function ListProperty() {
           // onSubmit={onSubmit}
           className="col-span-12 relative md:col-span-8 flex flex-col justify-between bg-white shadow-lg px-4"
         >
-          {/* <div className="absolute -top-4 text-center rounded-lg pb-5">
+          <div className="absolute -top-4 block md:hidden text-center rounded-lg pb-5">
             <span className="badge inline  p-2 text-lg">
               {currentStepIndex + 1} / {steps.length}
             </span>
-          </div> */}
-          <section className="grid gap-y-10 mt-10 text-sm">{step}</section>
+          </div>
+          <section className="grid gap-y-10 mt-10 text-sm ">{step}</section>
           <div className="mt-10 mb-5 flex gap-4 justify-between ">
             {!isFirstStep && (
               <button

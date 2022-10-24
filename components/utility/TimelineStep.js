@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const stateStyle = [
   // complete
-  ['bg-indigo-400  text-white', ''],
+  ['bg-green-500  text-white', ''],
   // current
   [
-    'bg-white text-indigo-400 border-2 font-semibold border-indigo-400',
-    'text-indigo-400',
+    'bg-white text-green-500 border-2 font-semibold border-green-500',
+    'text-green-500',
   ],
   // pending
   [
@@ -28,17 +28,17 @@ function TimelineStep({ currentStepIndex }) {
     },
     {
       id: 3,
-      text: 'Photos',
-      state: 'pending',
-    },
-    {
-      id: 4,
       text: 'Property Details',
       state: 'pending',
     },
     {
-      id: 5,
+      id: 4,
       text: 'Amenities',
+      state: 'pending',
+    },
+    {
+      id: 5,
+      text: 'Photos',
       state: 'pending',
     },
   ]);

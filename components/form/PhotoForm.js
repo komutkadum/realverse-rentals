@@ -50,7 +50,7 @@ function PhotoForm() {
         formData.append('theFiles', dataURItoBlob(temp[i]), uuidv4());
       }
       const response = await axios.post(
-        'http://localhost:3001/profile-upload-multiple',
+        'https://realverse-image-service.herokuapp.com/profile-upload-multiple',
         formData
       );
       setUploadedImage(response.data);

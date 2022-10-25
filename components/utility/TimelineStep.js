@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const stateStyle = [
   // complete
-  ['bg-green-500  text-white', ''],
+  ['bg-green-600  text-white', ''],
   // current
   [
-    'bg-white text-green-500 border-2 font-semibold border-green-500',
-    'text-green-500',
+    'bg-white text-green-600 border-2 font-semibold border-green-600',
+    'text-green-600',
   ],
   // pending
   [

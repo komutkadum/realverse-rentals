@@ -12,6 +12,12 @@ function PhotoForm() {
   const [uploadedImage, setUploadedImage] = useState([]);
   const [loading, setLoading] = useState(false);
   const onFileChangeCapture = (e) => {
+    // getting image total length
+    let length = Object.keys(e.target.files).length;
+    if (length > 15) {
+      alert('Image upload upto 15 photos');
+      return;
+    }
     /*Selected files data can be collected here.*/
     for (const file of e.target.files) {
       const reader = new FileReader();
@@ -32,8 +38,9 @@ function PhotoForm() {
     }
   };
 
-  const removeFile = (item) => {
-    setImages((prev) => prev.filter((value) => value !== item));
+  // index based removal
+  const removeFile = (i) => {
+    setImages((prev) => prev.filter((value, index) => index !== i));
   };
   const onBtnClick = () => {
     /*Collecting node-element and performing click*/
@@ -66,6 +73,11 @@ function PhotoForm() {
     }
   };
 
+  const resetUpload = () => {
+    setImages([]);
+    setUploadedImage([]);
+  };
+
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <input
@@ -85,29 +97,33 @@ function PhotoForm() {
             </div>
           )}
           <div className="flex flex-wrap justify-center gap-4 font-para">
-            <div className="w-36 h-36 border-dashed borderk z-1 bg-slate-50 border-indigo-400 grid place-items-center">
-              {/* uploading container */}
-              <div className="grid place-items-center" onClick={onBtnClick}>
-                <div className="w-14 h-14 grid place-items-center bg-blue-100 rounded-full">
-                  <Image
-                    src="/icons/photo-gallery.png"
-                    height={30}
-                    width={30}
-                    alt="photo gallery uploaded"
-                  />
+            {uploadedImage.length === 0 && (
+              <div className="w-36 h-36 border-dashed borderk z-1 bg-slate-50 border-indigo-400 grid place-items-center">
+                {/* uploading container */}
+                <div className="grid place-items-center" onClick={onBtnClick}>
+                  <div className="w-14 h-14 grid place-items-center bg-blue-100 rounded-full">
+                    <Image
+                      src="/icons/photo-gallery.png"
+                      height={30}
+                      width={30}
+                      alt="photo gallery uploaded"
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 font-semibold">
+                    + Add More
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500 font-semibold">
-                  + Add More
-                </p>
               </div>
-            </div>
+            )}
 
             {images.map((item, index) => (
               <div key={index} className="w-36 h-36 border relative">
                 <button
                   type="button"
-                  className="absolute z-10 text-red-600 grid place-items-center right-0 hover:bg-red-600 hover:text-white cursor-pointer shadow-lg w-5 h-5 bg-white"
-                  onClick={() => removeFile(item)}
+                  className={`absolute z-10 text-red-600 grid place-items-center right-0 hover:bg-red-600 hover:text-white cursor-pointer shadow-lg w-5 h-5 bg-white ${
+                    uploadedImage.length > 0 && 'hidden'
+                  }`}
+                  onClick={() => removeFile(index)}
                 >
                   x
                 </button>
@@ -120,12 +136,25 @@ function PhotoForm() {
                 />
               </div>
             ))}
+
             {uploadedImage.length > 0 ? (
               <div
-                className="p-4 mb-4 w-full text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                className="p-4 text-center mb-4 w-full text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
                 role="alert"
               >
-                <span className="font-medium">Files Uploaded</span>
+                <span className="font-medium">
+                  {uploadedImage.length} Files Uploaded!
+                </span>
+                <p>
+                  done a mistake,{' '}
+                  <button
+                    type="button"
+                    onClick={resetUpload}
+                    className="px-2 py-1 rounded-md bg-red-400 text-white"
+                  >
+                    redo upload
+                  </button>
+                </p>
               </div>
             ) : (
               <button
@@ -149,7 +178,7 @@ function PhotoForm() {
             <div className="my-5 leading-6 tracking-wide">
               <p className="font-semibold font-header">+Add photos</p>
               <p className="text-gray-500 ">(max limit 3MB per image)</p>
-              <p className="text-gray-500 ">(Upload upto 20 photos)</p>
+              <p className="text-gray-500 ">(Upload upto 15 photos)</p>
             </div>
 
             <button

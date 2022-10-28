@@ -2,7 +2,7 @@ function HomePage() {
   return (
     <>
       <div
-        className="max-w-full mb-16 py-44 sm:py-64 bg-cover flex justify-center bg-no-repeat relative bg-center"
+        className="max-w-full mb-16 py-56 sm:py-64 bg-cover flex justify-center bg-no-repeat relative bg-center"
         style={{
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}

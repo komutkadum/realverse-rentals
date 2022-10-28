@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 function ShowProperty() {
+  const contactRef = useRef();
+  const goToContactContainer = () => {
+    contactRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <>
       <main className="max-w-5xl mx-auto my-7 grid gap-y-4">
-        <section className="flex justify-between items-center">
+        <section className="sm:px-2 lg:px-0 justify-between items-center hidden sm:flex">
           <div className="grid gap-y-1 text-left">
             <h1 className="text-2xl font-header flex font-semibold">
               3 BHK apartment for rent
               <span className="ml-16 flex gap-x-2">
                 <span>
-                  <i class="fa-regular fa-share-from-square"></i>
+                  <i className="fa-regular fa-share-from-square"></i>
                 </span>
                 <span>
-                  <i class="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart"></i>
                 </span>
               </span>
             </h1>
@@ -24,17 +28,20 @@ function ShowProperty() {
               Prestige Dolce Vita, Prithvi Layout, Whitefield, Bangalore
             </p>
             <button className="bg-green-500 text-white rounded-md w-20 text-sm py-0.5">
-              <i class="fa-regular fa-circle-check"></i> Verified
+              <i className="fa-regular fa-circle-check"></i> Verified
             </button>
           </div>
           <div className="text-right grid gap-y-1">
             <h1 className="text-2xl font-header font-semibold">
-              <i class="fa-solid fa-indian-rupee-sign"></i> 60,000
+              <i className="fa-solid fa-indian-rupee-sign"></i> 60,000
             </h1>
             <p className="font-light text-sm font-para text-gray-500">
               Added 25 days ago
             </p>
-            <button className="bg-green-500 hover:bg-green-600 text-white rounded-md px-4 py-2">
+            <button
+              onClick={goToContactContainer}
+              className="bg-green-500 hover:bg-green-600 text-white rounded-md px-4 py-2"
+            >
               Contact seller
             </button>
           </div>
@@ -42,26 +49,48 @@ function ShowProperty() {
         <section className="">
           <div className="grid grid-rows-4 grid-flow-col gap-2">
             <div
-              className="row-span-4 col-span-2 h-96 bg-cover bg-center"
+              className="row-span-4 col-span-2 relative aspect-w-16 aspect-h-9 bg-cover bg-center"
               style={{ backgroundImage: "url('/images/owner.jpg')" }}
-            ></div>
+            >
+              <button className="bg-green-500 absolute text-white rounded-md w-20 right-1 sm:hidden h-7 text-sm py-0.5">
+                <i className="fa-regular fa-circle-check"></i> Verified
+              </button>
+            </div>
             <div
-              className="row-span-2 col-span-1 bg-cover bg-center"
+              className="row-span-2 col-span-1 hidden md:block bg-cover bg-center"
               style={{ backgroundImage: "url('/images/renter.jpg')" }}
             ></div>
             <div
-              className="row-span-2 col-span-1 bg-cover bg-center"
+              className="row-span-2 col-span-1 hidden md:block bg-cover bg-center"
               style={{ backgroundImage: "url('/images/everyone.jpg')" }}
             ></div>
           </div>
+          {/* mobile view */}
+          <div className="grid gap-y-1 bg-white p-5 sm:hidden">
+            <h1 className="  font-header flex font-semibold">
+              3 BHK apartment for rent
+            </h1>
+            <p>
+              <i className="fa-solid fa-indian-rupee-sign"></i> 60,000
+            </p>
+            <p className="font-light text-xs font-para text-gray-500">
+              Prestige Dolce Vita, Prithvi Layout, Whitefield, Bangalore
+            </p>
+            <p className="font-light text-xs font-para ">
+              Semi-furnished | 1722sq ft
+            </p>
+            <button className="bg-green-600 text-white mt-2 py-1 ">
+              Contact Seller
+            </button>
+          </div>
         </section>
-        <section className="grid grid-cols-12 gap-x-3 mb-20">
-          <div className="grid grid-cols-12 col-span-8  gap-y-4">
+        <section className="grid grid-cols-12 gap-x-3 gap-y-6 mb-8 sm:mb-20">
+          <div className="grid grid-cols-12 col-span-12 md:col-span-8 gap-y-2 sm:gap-y-4">
             <div className="grid grid-cols-12 col-span-12">
               <div className="col-span-12 text-xl px-5 bg-white border-b-2 font-semibold font-header py-4">
                 Overview
               </div>
-              <div className="col-span-12 py-8 px-5 bg-white grid grid-cols-2 font-para gap-y-8">
+              <div className="col-span-12 py-8 px-5 text-sm bg-white grid  font-para gap-y-8">
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
                     Project Name
@@ -223,8 +252,8 @@ function ShowProperty() {
             </div>
           </div>
 
-          <div className="col-span-4 bg-slate-200 px-4 pt-4">
-            <div className="sticky top-20 grid gap-y-4">
+          <div className="col-span-12 md:col-span-4 bg-slate-200 px-4 pt-4 pb-4 md:pb-0">
+            <div className="sm:sticky sm:top-20 grid gap-y-4" ref={contactRef}>
               <h1 className="py-3 px-4 rounded bg-yellow-100 border border-yellow-500 text-xs text-center">
                 Great choice! Nice neighborhood around
               </h1>
@@ -248,10 +277,10 @@ function ShowProperty() {
               </button>
               <div className="flex text-xs border border-gray-300 font-semibold font-para tracking-wide text-gray-500">
                 <button className="py-4 bg-white w-full border-r hover:bg-gray-100">
-                  <i class="fa-regular fa-share-from-square"></i> Share
+                  <i className="fa-regular fa-share-from-square"></i> Share
                 </button>
                 <button className="py-4 bg-white w-full hover:bg-gray-100">
-                  <i class="fa-regular fa-flag"></i> Report
+                  <i className="fa-regular fa-flag"></i> Report
                 </button>
               </div>
             </div>

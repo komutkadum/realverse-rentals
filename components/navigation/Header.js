@@ -61,7 +61,7 @@ function Header() {
             </div>
             <div className="absolute hidden sm:flex inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <Link href="/listproperty">
-                <button type="button" className="primary_button">
+                <button type="button" className="primary_button ">
                   <i className="fa-solid fa-clipboard-list"></i> List Property
                 </button>
               </Link>

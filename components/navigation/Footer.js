@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 function Footer() {
   return (
-    <footer className="bg-slate-700 pt-4 pb-8 xl:pt-8">
+    <footer className="bg-gradient-to-r from-slate-800 to-slate-900 pt-4 pb-8 xl:pt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-gray-400 tracking-wide ">
         <ul className="text-lg text-center md:text-left font-light pb-8 flex flex-wrap justify-center">
           <li className="w-full md:w-1/2 lg:w-1/4">

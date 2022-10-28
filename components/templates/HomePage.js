@@ -2,11 +2,14 @@ function HomePage() {
   return (
     <>
       <div
-        className="max-w-full mb-16 py-64 bg-cover flex justify-center bg-no-repeat relative bg-center"
+        className="max-w-full mb-16 py-44 sm:py-64 bg-cover flex justify-center bg-no-repeat relative bg-center"
         style={{
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
+        <h1 className="text-2xl text-center absolute top-20 sm:top-40 sm:text-5xl md:text-6xl bg-white p-4 text-gray-700 font-header font-extrabold tracking-wider">
+          Get Your Dream Home
+        </h1>
         <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
           <form
             className="grid grid-cols-12 gap-2 sm:gap-2"
@@ -239,7 +242,7 @@ function HomePage() {
 
           <div className="mt-10 font-para">
             <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-              <div className="relative duration-300  hover:text-white hover:bg-indigo-600 ease-in-out hover:rounded-lg transition cursor-pointer  p-4">
+              <div className="relative duration-300  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 ease-in-out hover:rounded-lg transition cursor-pointer  p-4">
                 <dt>
                   <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
                     <i className="fa-solid fa-users "></i>
@@ -254,7 +257,7 @@ function HomePage() {
                 </dd>
               </div>
 
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer p-4  hover:text-white hover:bg-indigo-600">
+              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer p-4  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900">
                 <dt>
                   <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
                     <i className="fa-solid fa-list-ul "></i>
@@ -269,7 +272,7 @@ function HomePage() {
                 </dd>
               </div>
 
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer hover:text-white hover:bg-indigo-600 p-4">
+              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 p-4">
                 <dt>
                   <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
                     <i className="fa-solid fa-house-user "></i>
@@ -284,7 +287,7 @@ function HomePage() {
                 </dd>
               </div>
 
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer  hover:text-white hover:bg-indigo-600 p-4">
+              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 p-4">
                 <dt>
                   <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
                     <i className="fa-solid fa-file-contract"></i>

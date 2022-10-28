@@ -1,10 +1,4 @@
-import React, { useRef } from 'react';
-
 function ShowProperty() {
-  const contactRef = useRef();
-  const goToContactContainer = () => {
-    contactRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
   return (
     <>
       <main className="max-w-5xl mx-auto my-7 grid gap-y-4">
@@ -38,10 +32,7 @@ function ShowProperty() {
             <p className="font-light text-sm font-para text-gray-500">
               Added 25 days ago
             </p>
-            <button
-              onClick={goToContactContainer}
-              className="bg-green-500 hover:bg-green-600 text-white rounded-md px-4 py-2"
-            >
+            <button className="bg-green-500 hover:bg-green-600 text-white rounded-md px-4 py-2">
               Contact seller
             </button>
           </div>
@@ -253,7 +244,7 @@ function ShowProperty() {
           </div>
 
           <div className="col-span-12 md:col-span-4 bg-slate-200 px-4 pt-4 pb-4 md:pb-0">
-            <div className="sm:sticky sm:top-20 grid gap-y-4" ref={contactRef}>
+            <div className="sm:sticky sm:top-20 grid gap-y-4">
               <h1 className="py-3 px-4 rounded bg-yellow-100 border border-yellow-500 text-xs text-center">
                 Great choice! Nice neighborhood around
               </h1>
@@ -266,8 +257,12 @@ function ShowProperty() {
                 <input type="text" placeholder="phone" className="form" />
               </div>
               <div className="text-xs text-black tracking-wide font-semibold font-para">
-                <input type="checkbox" className="mr-1" />
-                <label>
+                <input
+                  type="checkbox"
+                  id="showProperty_contact"
+                  className="mr-1"
+                />
+                <label htmlFor="showProperty_contact">
                   I agree to be contacted by realverse and other agents via
                   WhatsApp, SMS, phone, email.
                 </label>

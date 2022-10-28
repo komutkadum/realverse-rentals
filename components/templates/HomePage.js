@@ -7,7 +7,7 @@ function HomePage() {
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
-        <h1 className="text-2xl text-center absolute top-20 sm:top-40 sm:text-5xl md:text-6xl bg-white p-4 text-gray-700 font-header font-extrabold tracking-wider">
+        <h1 className="text-2xl text-center absolute top-28 sm:top-40 sm:text-5xl md:text-6xl bg-white p-4 text-gray-700 font-header font-extrabold tracking-wider">
           Get Your Dream Home
         </h1>
         <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">

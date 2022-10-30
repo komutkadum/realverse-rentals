@@ -1,4 +1,5 @@
 import { useUser } from '@auth0/nextjs-auth0';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -11,11 +12,25 @@ function ProfileSidebar() {
       <div className="col-span-12 mx-3 md:col-span-5 sm:mx-7">
         <div className="sticky top-24 bg-white py-10 border rounded-xl">
           <div className="text-center">
-            <img
-              src={user && user.picture}
-              className="rounded-full w-32 mb-4 mx-auto ring-2 ring-offset-8 ring-indigo-600"
-              alt={user && user.name}
-            />
+            <div className="ring-2 ring-offset-8 grid place-items-center ring-indigo-600 w-32 mx-auto rounded-full mb-4">
+              {user && user.picture ? (
+                <Image
+                  src={user && user.picture}
+                  title={user && user.picture}
+                  height="128"
+                  width="128"
+                  className="rounded-full"
+                  alt={user && user.name}
+                />
+              ) : (
+                <Image
+                  src="/icons/user.png"
+                  height="128"
+                  width="128"
+                  alt="hello"
+                />
+              )}
+            </div>
             <h5 className="text-xl font-medium leading-tight mb-2">
               {user && user.name}
             </h5>
@@ -49,9 +64,25 @@ function ProfileSidebar() {
                       } hover:bg-indigo-400 flex items-center p-2 transition-colors   duration-200    rounded-lg`}
                       href="http://realverse.rentals/activites.html"
                     >
-                      <i className="fa-solid fa-pen-to-square"></i>
+                      <i className="fa-solid fa-briefcase"></i>
                       <span className="mx-4 text-lg font-normal">
                         My activities
+                      </span>
+                      <span className="flex-grow text-right"></span>
+                    </a>
+                  </Link>
+                  <Link href="/dashboard">
+                    <a
+                      className={`hover:text-gray-800 ${
+                        router.pathname === '/dashboard'
+                          ? 'bg-indigo-600 text-white'
+                          : 'text-gray-600'
+                      } hover:bg-indigo-400 flex items-center p-2 transition-colors   duration-200    rounded-lg`}
+                      href="http://realverse.rentals/activites.html"
+                    >
+                      <i className="fa-solid fa-chart-simple"></i>
+                      <span className="mx-4 text-lg font-normal">
+                        Dashboard
                       </span>
                       <span className="flex-grow text-right"></span>
                     </a>

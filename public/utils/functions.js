@@ -10,12 +10,12 @@ closeMobileMenuButton.addEventListener('click', () => {
   mobileMenu.style.width = '0';
 });
 
-const userMenuButton = document.getElementById('user-menu-button');
-const userMenuDropdown = document.getElementById('user-menu-dropdown');
+// const userMenuButton = document.getElementById('user-menu-button');
+// const userMenuDropdown = document.getElementById('user-menu-dropdown');
 
-userMenuButton.addEventListener('click', () => {
-  userMenuDropdown.classList.toggle('hidden');
-});
+// userMenuButton.addEventListener('click', () => {
+//   userMenuDropdown.classList.toggle('hidden');
+// });
 
 const map = document.getElementById('gmap');
 function myFunction() {

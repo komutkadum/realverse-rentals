@@ -11,15 +11,14 @@ body {
 .white {
   background-color: #eaebed;
 }
-.font-main {
-  font-family: 'Kanit', sans-serif;
-}
+
 .font-header {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .font-para {
   font-family: 'Open Sans', sans-serif;
 }
+
 /* add * after */
 .add_asterisk_after::after {
   content: ' *';

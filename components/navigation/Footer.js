@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-slate-800 to-slate-900 py-8">
+    <footer className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-gray-400 tracking-wide ">
         <ul className="text-lg text-center md:text-left font-light pb-8 flex flex-wrap justify-center">
           <li className="w-full md:w-1/2 lg:w-1/4">
             <div className="text-sm font-bold">
-              <h2 className="text-white font-bold text-lg uppercase mb-7 font-header">
+              <h2 className="text-white tracking-widest font-bold text-lg uppercase mb-7 font-header">
                 COMPANY
               </h2>
               <ul className="font-para">
@@ -22,13 +22,6 @@ function Footer() {
                   <Link href="/team">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       Teams
-                    </a>
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link href="/partners">
-                    <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
-                      For Partners
                     </a>
                   </Link>
                 </li>
@@ -58,12 +51,12 @@ function Footer() {
           </li>
           <li className="w-full md:w-1/2 lg:w-1/4">
             <div className="text-sm font-bold">
-              <h2 className="text-white font-bold text-lg uppercase mb-7 font-header">
+              <h2 className="text-white tracking-widest font-bold text-lg uppercase mb-7 font-header">
                 Realverse
               </h2>
               <ul className="font-para">
                 <li className="mb-4 ">
-                  <Link href="/apps">
+                  <Link href="/mobileapps">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       Mobile Apps
                     </a>
@@ -102,7 +95,7 @@ function Footer() {
           </li>
           <li className="w-full md:w-1/2 lg:w-1/4">
             <div className="text-sm font-bold">
-              <h2 className="text-white font-header font-bold text-lg uppercase mb-7">
+              <h2 className="text-white tracking-widest font-header font-bold text-lg uppercase mb-7">
                 Explore
               </h2>
               <ul className="font-para">
@@ -110,6 +103,13 @@ function Footer() {
                   <Link href="/news">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       News
+                    </a>
+                  </Link>
+                </li>
+                <li className="mb-4 ">
+                  <Link href="/blog">
+                    <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
+                      Blog
                     </a>
                   </Link>
                 </li>
@@ -131,36 +131,24 @@ function Footer() {
             </div>
           </li>
           <li className="w-full md:w-1/2 lg:w-1/4 ">
-            <h2 className="text-white font-bold text-lg uppercase mb-7 font-header">
+            <h2 className="text-white tracking-widest font-bold text-lg uppercase mb-5 font-header">
               Connect with us
             </h2>
             <div className="flex gap-x-4 justify-center md:justify-start">
-              <Link
-                href="#"
-                className="text-xl hover:bg-slate-700 hover:text-white transition duration-200"
-              >
-                <i className="fa-brands fa-facebook"></i>
+              <Link href="#">
+                <i className="fa-brands fa-facebook hover:text-white cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link>
-              <Link
-                href="#"
-                className=" text-xl hover:bg-slate-700 hover:text-white transition duration-200"
-              >
-                <i className="fa-brands fa-twitter"></i>
+              <Link href="#">
+                <i className="fa-brands fa-twitter hover:text-white cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link>
-              <Link
-                href="#"
-                className=" text-xl hover:bg-slate-700 hover:text-white transition duration-200"
-              >
-                <i className="fa-brands fa-youtube"></i>
+              <Link href="#">
+                <i className="fa-brands fa-youtube hover:text-white cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link>
-              <Link
-                href="#"
-                className=" text-xl hover:bg-slate-700 hover:text-white transition duration-200"
-              >
-                <i className="fa-brands fa-instagram"></i>
+              <Link href="#">
+                <i className="fa-brands fa-instagram hover:text-white cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link>
             </div>
-            <h2 className="text-white mt-5 font-bold text-lg uppercase mb-5 font-header">
+            <h2 className="text-white mt-5 tracking-widest font-bold text-lg uppercase mb-5 font-header">
               Contact us
             </h2>
             <p className="font-para text-sm font-bold ">

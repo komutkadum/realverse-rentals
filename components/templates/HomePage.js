@@ -1,3 +1,6 @@
+import HomePropertyCard from '../cards/HomePropertyCard';
+import WhyUseCard from '../cards/WhyUseCard';
+
 function HomePage() {
   return (
     <>
@@ -7,10 +10,10 @@ function HomePage() {
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
-        <h1 className="text-2xl text-center absolute top-28 sm:top-40 sm:text-5xl md:text-6xl bg-white p-4 text-gray-700 font-header font-extrabold tracking-wider">
+        <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-gray-900 via-gray-500 to-gray-900 p-6 rounded-full opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">
           Get Your Dream Home
         </h1>
-        <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
+        <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white shadow-lg absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
           <form
             className="grid grid-cols-12 gap-2 sm:gap-2"
             onSubmit={(e) => e.preventDefault()}
@@ -21,7 +24,7 @@ function HomePage() {
                 name="first-name"
                 id="first-name"
                 placeholder="Location*"
-                className="block w-full rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm "
               />
             </div>
             <div className="col-span-12 sm:col-span-6 lg:col-span-2">
@@ -95,134 +98,9 @@ function HomePage() {
             </h2>
 
             <div className="mt-6 space-y-12 md:grid md:grid-cols-2 font-para md:gap-x-4 md:space-y-0 lg:grid-cols-3 lg:gap-x-6">
-              <div className="relative rounded-lg border hover:shadow-xl transition duration-300">
-                <div className="relative h-80 w-full rounded-lg overflow-hidden bg-white ">
-                  <span className="absolute cursor-pointer shadow-sm hover:text-red-500 z-20 top-2 text-white text-4xl right-2">
-                    <i className="fa-solid fa-heart"></i>
-                  </span>
-                  <img
-                    src="/images/renter.jpg"
-                    alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                    className="h-full w-full object-cover z-0 object-center"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="mb-2 text-xs block text-ellipsis whitespace-nowrap overflow-hidden text-gray-500">
-                    <i className="fa-solid fa-location-dot"></i> ECC Road,
-                    Pattandur Agrahara, Whitefield, Bangalore, Karnataka, India
-                  </h3>
-                  <h1 className="text-lg mb-6 font-semibold  text-ellipsis whitespace-nowrap overflow-hidden">
-                    1 RK Apartment In Prestige Whistling Palms, Whitefield For
-                    Rent In White
-                  </h1>
-                  <p className="mb-3 text-sm grid grid-cols-2 gap-y-4 gap-x-4">
-                    <span className="">
-                      <i className="fa-solid fa-bed mr-3"></i>3 Bedrooms
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-sink mr-3"></i>2 Bathrooms
-                    </span>
-                    <span className="">
-                      <i className="fa-solid fa-sink mr-3"></i>Furnished
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-mountain mr-3"></i>3000 sqft.
-                      Area.
-                    </span>
-                    <span className="">&#8377;&nbsp;&nbsp;20,000 Rent</span>
-                    <span>&#8377;&nbsp;&nbsp;&nbsp;40,000 Deposit</span>
-                  </p>
-                  <button className="mt-3 w-full p-3 font-para  primary_button_without">
-                    View property <i className="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div className="relative rounded-lg border hover:shadow-xl transition duration-300">
-                <div className="relative h-80 w-full rounded-lg overflow-hidden bg-white ">
-                  <span className="absolute cursor-pointer shadow-sm hover:text-red-500 z-20 top-2 text-white text-4xl right-2">
-                    <i className="fa-solid fa-heart"></i>
-                  </span>
-                  <img
-                    src="/images/everyone.jpg"
-                    alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                    className="h-full w-full object-cover z-0 object-center"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="mb-2 text-xs block text-ellipsis whitespace-nowrap overflow-hidden text-gray-500">
-                    <i className="fa-solid fa-location-dot"></i> ECC Road,
-                    Pattandur Agrahara, Whitefield, Bangalore, Karnataka, India
-                  </h3>
-                  <h1 className="text-lg mb-6 font-semibold  text-ellipsis whitespace-nowrap overflow-hidden">
-                    1 RK Apartment In Prestige Whistling Palms, Whitefield For
-                    Rent In White
-                  </h1>
-                  <p className="mb-3 text-sm grid grid-cols-2 gap-y-4 gap-x-4">
-                    <span className="">
-                      <i className="fa-solid fa-bed mr-3"></i>3 Bedrooms
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-sink mr-3"></i>2 Bathrooms
-                    </span>
-                    <span className="">
-                      <i className="fa-solid fa-sink mr-3"></i>Furnished
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-mountain mr-3"></i>3000 sqft.
-                      Area.
-                    </span>
-                    <span className="">&#8377;&nbsp;&nbsp;20,000 Rent</span>
-                    <span>&#8377;&nbsp;&nbsp;&nbsp;40,000 Deposit</span>
-                  </p>
-                  <button className="mt-3 w-full p-3 font-para  primary_button_without">
-                    View property <i className="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div className="relative rounded-lg border hover:shadow-xl transition duration-300">
-                <div className="relative h-80 w-full rounded-lg overflow-hidden bg-white ">
-                  <span className="absolute cursor-pointer shadow-sm hover:text-red-500 z-20 top-2 text-white text-4xl right-2">
-                    <i className="fa-solid fa-heart"></i>
-                  </span>
-                  <img
-                    src="/images/owner.jpg"
-                    alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-                    className="h-full w-full object-cover z-0 object-center"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="mb-2 text-xs block text-ellipsis whitespace-nowrap overflow-hidden text-gray-500">
-                    <i className="fa-solid fa-location-dot"></i> ECC Road,
-                    Pattandur Agrahara, Whitefield, Bangalore, Karnataka, India
-                  </h3>
-                  <h1 className="text-lg mb-6 font-semibold  text-ellipsis whitespace-nowrap overflow-hidden">
-                    1 RK Apartment In Prestige Whistling Palms, Whitefield For
-                    Rent In White
-                  </h1>
-                  <p className="mb-3 text-sm grid grid-cols-2 gap-y-4 gap-x-4">
-                    <span className="">
-                      <i className="fa-solid fa-bed mr-3"></i>3 Bedrooms
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-sink mr-3"></i>2 Bathrooms
-                    </span>
-                    <span className="">
-                      <i className="fa-solid fa-sink mr-3"></i>Furnished
-                    </span>
-                    <span>
-                      <i className="fa-solid fa-mountain mr-3"></i>3000 sqft.
-                      Area.
-                    </span>
-                    <span className="">&#8377;&nbsp;&nbsp;20,000 Rent</span>
-                    <span>&#8377;&nbsp;&nbsp;&nbsp;40,000 Deposit</span>
-                  </p>
-                  <button className="mt-3 w-full p-3 font-para  primary_button_without">
-                    View property <i className="fa-solid fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
+              <HomePropertyCard />
+              <HomePropertyCard />
+              <HomePropertyCard />
             </div>
           </div>
         </div>
@@ -242,64 +120,29 @@ function HomePage() {
 
           <div className="mt-10 font-para">
             <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-              <div className="relative duration-300  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 ease-in-out hover:rounded-lg transition cursor-pointer  p-4">
-                <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
-                    <i className="fa-solid fa-users "></i>
-                  </div>
-                  <p className="ml-16 text-lg font-semibold leading-6 font-header ">
-                    Avoid Brokers
-                  </p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base ">
-                  We directly connected you to verified owners to avoid
-                  brokerage.
-                </dd>
-              </div>
-
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer p-4  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900">
-                <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
-                    <i className="fa-solid fa-list-ul "></i>
-                  </div>
-                  <p className="ml-16 text-lg font-semibold leading-6 font-header ">
-                    No hidden fees
-                  </p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base ">
-                  Easy listing process and free. By automation, you can also
-                  connect us through whatsapp.
-                </dd>
-              </div>
-
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 p-4">
-                <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
-                    <i className="fa-solid fa-house-user "></i>
-                  </div>
-                  <p className="ml-16 text-lg font-semibold leading-6 font-header ">
-                    Shortlist Without Visit
-                  </p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base ">
-                  Extensive information makes it easy, so you dont have to
-                  travel around.
-                </dd>
-              </div>
-
-              <div className="relative duration-500 ease-in-out hover:rounded-lg transition cursor-pointer  hover:text-white hover:bg-gradient-to-r hover:from-indigo-600 hover:to-indigo-900 p-4">
-                <dt>
-                  <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-600 text-white">
-                    <i className="fa-solid fa-file-contract"></i>
-                  </div>
-                  <p className="ml-16 text-lg font-semibold leading-6 font-header ">
-                    Rental Agreement
-                  </p>
-                </dt>
-                <dd className="mt-2 ml-16 text-base ">
-                  Assistance in creating Rental agreement and paper work{' '}
-                </dd>
-              </div>
+              <WhyUseCard
+                icon="fa-solid fa-users "
+                title="Avoid Brokers"
+                text="We directly connected you to verified owners to avoid
+                  brokerage."
+              />
+              <WhyUseCard
+                icon="fa-solid fa-list-ul"
+                title="No hidden fees"
+                text="Easy listing process and free. By automation, you can also
+                connect us through whatsapp."
+              />
+              <WhyUseCard
+                icon="fa-solid fa-house-user"
+                title="Shortlist Without Visit"
+                text="Extensive information makes it easy, so you dont have to
+                travel around."
+              />
+              <WhyUseCard
+                icon="fa-solid fa-file-contract"
+                title="Rental Agreement"
+                text="Assistance in creating Rental agreement and paper work"
+              />
             </dl>
           </div>
         </div>
@@ -331,7 +174,7 @@ function HomePage() {
                 type="button"
                 className="py-4 px-6  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
-                <i className="fa-solid fa-phone"></i> Enquire Us
+                <i className="fa-solid fa-phone animate-pulse"></i> Enquire Us
               </button>
             </div>
           </div>

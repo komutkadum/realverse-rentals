@@ -1,11 +1,12 @@
 import { useUser } from '@auth0/nextjs-auth0';
+import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
-import React from 'react';
+import React, { useState } from 'react';
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, error, isLoading } = useUser();
-  console.log(user);
   return (
     <>
       <nav className="bg-white sticky top-0 z-30 shadow">
@@ -55,7 +56,7 @@ function Header() {
               {/* <!--end of Mobile menu button--> */}
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-              <div className="flex flex-shrink-0 text-slate-700 items-center font-extrabold hover:text-slate-500 hover:underline hover:underline-offset-8 cursor-pointer text-2xl  font-main">
+              <div className="flex flex-shrink-0 text-slate-700 items-center font-extrabold hover:text-slate-500 hover:underline hover:underline-offset-8 cursor-pointer text-2xl  font-header">
                 <Link href="/">Realverse Rentals</Link>
               </div>
             </div>
@@ -71,12 +72,12 @@ function Header() {
                   <button
                     type="button"
                     className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    id="user-menu-button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
+                    id="dropdownDefault"
+                    data-dropdown-toggle="dropdown"
+                    onClick={() => setIsMenuOpen((prev) => !prev)}
                   >
                     <span className="sr-only">Open user menu</span>
-                    <img
+                    <Image
                       className="h-8 w-8 rounded-full"
                       width="32"
                       height="32"
@@ -86,16 +87,12 @@ function Header() {
                   </button>
                 </div>
                 <div
-                  className="absolute hidden font-para right-0 z-10 mt-2 w-48  origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                  id="user-menu-dropdown"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="user-menu-button"
-                  tabIndex="-1"
+                  className={`absolute font-para right-0 z-10 mt-2 w-48  origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden`}
+                  id="dropdown"
                 >
                   <Link href="/profile">
                     <a
-                      href="http://realverse.rentals/profile.html"
+                      onClick={() => setIsMenuOpen(false)}
                       className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
                       role="menuitem"
                       tabIndex="-1"
@@ -103,6 +100,19 @@ function Header() {
                     >
                       {' '}
                       <i className="fa-solid fa-user"></i>&nbsp;&nbsp;Profile
+                    </a>
+                  </Link>
+
+                  <Link href="/activity">
+                    <a
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="user-menu-item-2"
+                    >
+                      <i className="fa-solid fa-briefcase is-size-3"></i>
+                      &nbsp;&nbsp;My activities
                     </a>
                   </Link>
                   {user ? (
@@ -146,18 +156,6 @@ function Header() {
                       </Link>
                     </>
                   )}
-                  <Link href="/activity">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="user-menu-item-2"
-                    >
-                      <i className="fa-solid fa-briefcase is-size-3"></i>
-                      &nbsp;&nbsp;My activities
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>

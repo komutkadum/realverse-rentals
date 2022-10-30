@@ -13,3 +13,20 @@ export default function Home() {
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   try {
+//     const result = await getList();
+//     return {
+//       props: {
+//         result: JSON.stringify(result),
+//       },
+//       revalidate: 10,
+//     };
+//   } catch (e) {
+//     console.error(e);
+//     return {
+//       props: { isConnected: false },
+//     };
+//   }
+// }

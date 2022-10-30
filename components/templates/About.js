@@ -1,19 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Accordion from '../utility/Accordion';
 
 function About() {
   return (
     <>
-      <section className="max-w-3xl px-4 mx-auto py-20 md:py-28 lg:py-36 ">
+      <section className="max-w-3xl px-4 mx-auto  py-20 md:py-28 lg:py-36 ">
         <div className="text-center px-4 pb-10 font-header">
           <h2 className="text-lg font-semibold tracking-wider text-red-600">
             Our purpose
           </h2>
-          <p className="mt-6 text-3xl font-medium leading-8 tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-3 text-3xl font-medium leading-8 tracking-tight text-gray-900 sm:text-4xl">
             We create opportunity for everyone to make a fresh start
           </p>
         </div>
-        <div className="grid gap-y-4 font-para text-gray-700">
+        <div className="grid gap-y-4 font-para  text-gray-700">
           <p>
             We believe finding your new apartment is more than just a move. It’s
             something bigger. A step forward. A new beginning. A fresh start.
@@ -34,7 +35,7 @@ function About() {
         </div>
       </section>
 
-      <section className=" bg-slate-800">
+      <section className=" bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-5xl px-4 mx-auto py-20 md:py-28 lg:py-36 grid">
           <h1 className="text-center font-bold text-lg text-red-400">
             Who we help
@@ -74,21 +75,21 @@ function About() {
               />
             </div>
             <div className="lg:pr-10 grid">
-              <h5 className="mt-4 md:mb-4 text-4xl font-medium text-white font-header">
+              <h5 className="mt-4 md:mb-0 text-4xl font-medium text-white font-header">
                 Property owners
                 <br className="hidden md:block" />
                 <p className="text-gray-400">
                   By connecting them with quality renters
                 </p>
               </h5>
-              <p className="mt-6 sm:mb-6 text-gray-300 font-para">
+              <p className="mt-6 sm:mb-0 text-gray-300 font-para">
                 We connect property owners and multifamily partners with quality
                 renters and give them the tools they need to fill more
                 vacancies, more quickly.
               </p>
-              <hr className="mt-5 sm:mb-5 hidden lg:block border-gray-300" />
+              <hr className="mt-5 sm:mb-0 hidden lg:block border-gray-300" />
             </div>
-            <div className="block md:hidden">
+            <div className="block mt-6 md:hidden">
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
                 src="/images/owner.jpg"
@@ -128,7 +129,7 @@ function About() {
           <h2 className="text-lg font-semibold tracking-wider text-red-600">
             Giving back
           </h2>
-          <p className="mt-6 text-3xl font-medium leading-8 tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-3 text-3xl font-medium leading-8 tracking-tight text-gray-900 sm:text-4xl">
             Building a better world <br /> starts at home
           </p>
         </div>
@@ -150,11 +151,11 @@ function About() {
 
       <section className=" bg-white">
         <div className="max-wxl px-4 mx-auto py-20 md:py-28 lg:py-40">
-          <div className="text-center px-4 pb-10 font-header">
+          <div className="text-center mb-3 px-4 pb-10 font-header">
             <h2 className="text-lg font-semibold tracking-wider text-red-600">
               Core Team
             </h2>
-            <p className="mt-6 text-3xl font-medium leading-8 tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-3 text-3xl font-medium leading-8 text-gray-900 sm:text-4xl">
               Meet the people behind
               <br /> Realverse Rentals
             </p>
@@ -182,13 +183,13 @@ function About() {
                         href="/"
                         className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                       >
-                        <i className="fa-brands fa-facebook"></i>
+                        <i className="fa-brands fa-facebook text-2xl"></i>
                       </Link>
                       <Link
                         href="/"
                         className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                       >
-                        <i className="fa-brands fa-linkedin"></i>
+                        <i className="fa-brands fa-linkedin text-2xl"></i>
                       </Link>
                     </div>
                   </div>
@@ -202,7 +203,7 @@ function About() {
                     />
                   </div>
                   <div className="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
-                    <p className="text-lg font-bold">Aksnay Mishra</p>
+                    <p className="text-lg font-bold">Akshay Mishra</p>
                     <p className="mb-4 text-xs text-gray-800">Lead Developer</p>
                     <p className="mb-4 text-sm tracking-wide text-gray-800">
                       A great conversionalist.
@@ -212,13 +213,13 @@ function About() {
                         href="/"
                         className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                       >
-                        <i className="fa-brands fa-facebook"></i>
+                        <i className="fa-brands fa-facebook text-2xl"></i>
                       </Link>
                       <Link
                         href="/"
                         className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                       >
-                        <i className="fa-brands fa-linkedin"></i>
+                        <i className="fa-brands fa-linkedin text-2xl"></i>
                       </Link>
                     </div>
                   </div>

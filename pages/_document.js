@@ -11,12 +11,16 @@ export default function Document() {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Open+Sans&family=Ubuntu&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&display=swap"
           rel="stylesheet"
         />
         <script
           src="https://kit.fontawesome.com/cd76c07470.js"
           crossOrigin="anonymous"
+          async
+        ></script>
+        <script
+          src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"
           async
         ></script>
       </Head>

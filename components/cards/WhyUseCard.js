@@ -5,7 +5,7 @@ function WhyUseCard({ icon, title, text }) {
   return (
     <>
       <div className="relative group duration-300 block hover:scale-105 transition-all cursor-pointer">
-        <BorderTransform width="0.5" color="bg-indigo-600" />
+        <BorderTransform color="bg-indigo-600" />
         <div className="p-4">
           <dt>
             <div className="absolute flex h-12 w-12 items-center justify-center bg-indigo-600 text-white">

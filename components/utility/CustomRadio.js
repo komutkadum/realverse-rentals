@@ -9,8 +9,8 @@ function CustomRadio({ id, name, text, value, updateFields }) {
         id={id}
         className="peer hidden"
         name={name}
-        checked={value === id}
-        onChange={(e) => updateFields({ [name]: e.target.value })}
+        checked={value === text}
+        onChange={(e) => updateFields({ [name]: text })}
       />
       <label htmlFor={id} className="custom_checkbox">
         {text}

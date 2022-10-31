@@ -88,7 +88,7 @@ body {
 
 @layer components {
   .form {
-    @apply relative block w-full appearance-none  border-0 border-b border-gray-300 px-3 py-2;
+    @apply relative block w-full  appearance-none outline-none  border-0 border-b border-gray-300 px-3 py-2 focus:outline-none  focus:ring-0 focus:border-b-gray-300;
   }
   .activity_active {
     @apply grid place-items-center overflow-hidden text-xs sm:text-sm p-2 text-center items-center font-bold col-span-3 cursor-pointer rounded-lg border border-indigo-600 bg-indigo-100 hover:border-indigo-600;

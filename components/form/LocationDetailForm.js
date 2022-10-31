@@ -38,7 +38,7 @@ function LocationDetailForm({
               updateFields({ buildingProjectSociety: e.target.value })
             }
             className="form"
-            placeholder="current city"
+            placeholder="building"
           />
         </div>
       </div>

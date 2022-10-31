@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
-import Footer from '../components/navigation/Footer';
-import ShowProperty from '../components/templates/ShowProperty';
+import Footer from '../../components/navigation/Footer';
+import ShowProperty from '../../components/templates/ShowProperty';
 
 function showproperty() {
   return (
@@ -13,6 +13,12 @@ function showproperty() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
 }
 
 export default showproperty;

@@ -1,6 +1,6 @@
 import AmenitiesContainer from '../utility/AmenitiesContainer';
 
-function AmenitiesDetailForm({ amenities, updateCheckbox }) {
+function AmenitiesDetailForm({ amenities, societyAmenities, updateCheckbox }) {
   return (
     <>
       <div className="text-gray-500">
@@ -103,100 +103,100 @@ function AmenitiesDetailForm({ amenities, updateCheckbox }) {
         <label className="text-xs font-semibold">Society Amenities</label>
         <div className="flex gap-2 flex-wrap">
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Lift"
             icon="elevator"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="CCTV"
             icon="cctv"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Gym"
             icon="weight"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Garden"
             icon="garden"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Kids Area"
             icon="seesaw"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Sports"
             icon="cricket"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Swimming Pool"
             icon="swimming"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Intercom"
             icon="intercom"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Gated Area"
             icon="gate"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Club House"
             icon="house"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Community Hall"
             icon="city-hall"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Regular Water"
             icon="faucet"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Power Backup"
             icon="lightbulb"
           />
           <AmenitiesContainer
-            value={amenities}
+            value={societyAmenities}
             updateCheckbox={updateCheckbox}
-            name="amenities"
+            name="societyAmenities"
             text="Pet Allowed"
             icon="pet"
           />

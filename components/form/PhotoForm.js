@@ -6,10 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { dataURItoBlob } from '../../lib/dataURItoBlob';
 import Spinner from '../utility/Spinner';
 
-function PhotoForm() {
+function PhotoForm({ uploadedImage, setUploadedImage }) {
   const inputFileRef = useRef();
   const [images, setImages] = useState([]);
-  const [uploadedImage, setUploadedImage] = useState([]);
   const [loading, setLoading] = useState(false);
   const onFileChangeCapture = (e) => {
     // getting image total length

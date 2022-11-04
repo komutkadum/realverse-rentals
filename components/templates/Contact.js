@@ -17,7 +17,7 @@ function Contact() {
         <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
           <div className="grid grid-cols-1 gap-6 px-2 text-center md:px-0 md:grid-cols-3">
             <div className="overflow-x-auto border relative group bg-white shadow">
-              <BorderTransform color="bg-slate-300" />
+              <BorderTransform color="bg-indigo-300" />
               <div className="p-6 relative">
                 <svg
                   className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
@@ -43,7 +43,7 @@ function Contact() {
             </div>
 
             <div className="overflow-x-auto  relative group bg-white shadow">
-              <BorderTransform color="bg-slate-300" />
+              <BorderTransform color="bg-indigo-300" />
               <div className="p-6">
                 <svg
                   className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
@@ -69,7 +69,7 @@ function Contact() {
             </div>
 
             <div className="overflow-x-auto  relative group bg-white shadow">
-              <BorderTransform color="bg-slate-300" />
+              <BorderTransform color="bg-indigo-300" />
               <div className="p-6">
                 <svg
                   className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
@@ -100,7 +100,7 @@ function Contact() {
           </div>
 
           <div className="mt-6 overflow-x-auto relative group bg-white shadow">
-            <BorderTransform color="bg-slate-300" />
+            <BorderTransform color="bg-indigo-300" />
 
             <div className="px-6 py-12 sm:p-12">
               <h3 className="text-3xl font-header font-semibold text-center text-gray-900">

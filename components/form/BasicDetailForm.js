@@ -63,7 +63,8 @@ function BasicDetailForm({
       {/* property type */}
       <div>
         <label className="font-semibold add_asterisk_after">
-          Age of Property{' '}
+          Age of Property&nbsp;
+          <span className="text-xs text-gray-500 font-thin">(in years)</span>
         </label>
         <div className="flex  gap-2 mt-1 tracking-wider font-semibold">
           <input
@@ -71,7 +72,7 @@ function BasicDetailForm({
             className="form"
             value={propertyAge}
             onChange={(e) => updateFields({ propertyAge: e.target.value })}
-            placeholder="property age in numbers"
+            placeholder="property age in years"
           />
         </div>
       </div>
@@ -375,19 +376,12 @@ function BasicDetailForm({
           Do you take security deposit{' '}
         </label>
         <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
-          <CustomRadio
-            id="yes_securityDeposit"
-            name="securityDeposit"
-            text="Yes"
+          <input
+            type="number"
+            className="form"
             value={securityDeposit}
-            updateFields={updateFields}
-          />
-          <CustomRadio
-            id="no_securityDeposit"
-            name="securityDeposit"
-            text="No"
-            value={securityDeposit}
-            updateFields={updateFields}
+            onChange={(e) => updateFields({ securityDeposit: e.target.value })}
+            placeholder="security deposit"
           />
         </div>
       </div>

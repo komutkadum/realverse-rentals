@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
+
 function HomePropertyCard() {
   return (
     <>
@@ -37,9 +40,11 @@ function HomePropertyCard() {
             <span className="">&#8377;&nbsp;&nbsp;20,000 Rent</span>
             <span>&#8377;&nbsp;&nbsp;&nbsp;40,000 Deposit</span>
           </p>
-          <button className="mt-3 w-full p-3 font-para  primary_button_without">
-            View property <i className="fa-solid fa-arrow-right"></i>
-          </button>
+          <Link href="/showproperty/636561d068497218abb11cb1">
+            <button className="mt-3 w-full p-3 font-para  primary_button_without">
+              View property <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </Link>
         </div>
       </div>
     </>

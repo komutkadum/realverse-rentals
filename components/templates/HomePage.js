@@ -10,7 +10,7 @@ function HomePage() {
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
-        <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-gray-900 via-gray-500 to-gray-900 p-6 rounded-full opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">
+        <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-cyan-900 via-gray-500 to-cyan-900 p-6 rounded-full opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">
           Get Your Dream Home
         </h1>
         <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white shadow-lg absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
@@ -21,9 +21,11 @@ function HomePage() {
             <div className="col-span-12 sm:col-span-6 lg:col-span-4">
               <input
                 type="text"
-                name="first-name"
-                id="first-name"
+                name="searchHomePage"
+                id="searchHomePage"
                 placeholder="Location*"
+                required=""
+                spellCheck="false"
                 className="block w-full rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm "
               />
             </div>

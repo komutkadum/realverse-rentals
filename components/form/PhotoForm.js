@@ -116,7 +116,10 @@ function PhotoForm({ uploadedImage, setUploadedImage }) {
             )}
 
             {images.map((item, index) => (
-              <div key={index} className="w-36 h-36 border relative">
+              <div
+                key={index}
+                className="w-36 h-36 border relative transition duration-200"
+              >
                 <button
                   type="button"
                   className={`absolute z-10 text-red-600 grid place-items-center right-0 hover:bg-red-600 hover:text-white cursor-pointer shadow-lg w-5 h-5 bg-white ${
@@ -192,7 +195,7 @@ function PhotoForm({ uploadedImage, setUploadedImage }) {
             Your photos might get rejected
             <button
               type="button"
-              className="primary_button_without_background block mx-auto mt-2 bg-red-300 hover:bg-red-400 text-white"
+              className="primary_button_without_background block mx-auto mt-2 ring-red-300 bg-red-300 hover:bg-red-400 text-white"
             >
               View Reasons
             </button>

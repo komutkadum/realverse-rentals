@@ -14,6 +14,4 @@ function activity() {
   );
 }
 
-export const getServerSideProps = withPageAuthRequired();
-
-export default activity;
+export default withPageAuthRequired(activity);

@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/alt-text */
 
 import { AMENITIES_ICON } from '../../lib/constants';
+import { timeAgo } from '../../lib/timeAgo';
 
 /* eslint-disable @next/next/no-img-element */
 function ShowProperty({ data }) {
@@ -36,7 +38,7 @@ function ShowProperty({ data }) {
               {data.monthlyRent}
             </h1>
             <p className="font-light text-sm font-para text-gray-500">
-              Added 25 days ago
+              Added {timeAgo(data.createdDate)}
             </p>
             <button className="bg-green-500 hover:bg-green-600 text-white rounded-md px-4 py-2">
               Contact seller
@@ -44,26 +46,36 @@ function ShowProperty({ data }) {
           </div>
         </section>
         <section className="">
-          <div className="grid grid-rows-4 grid-flow-col gap-2 p-2 bg-white shadow-lg">
+          <div className="grid grid-rows-4 cursor-pointer grid-flow-col gap-2 p-2 bg-white shadow-lg">
             <div
               className="row-span-4 col-span-2 relative aspect-w-16 aspect-h-9 bg-cover bg-no-repeat bg-white bg-center"
               style={{ backgroundImage: `url('${data.photos[0]}')` }}
-              // style={{ backgroundImage: `url('/images/owner.jpg}')` }}
             >
               <button className="bg-green-500 absolute text-white rounded-md w-20 right-1 sm:hidden h-7 text-sm py-0.5">
                 <i className="fa-regular fa-circle-check"></i> Verified
               </button>
+              <div className="absolute md:hidden text-center text-lg w-full grid place-items-center h-full  opacity-90">
+                <div className="bg-white px-2 py-1 shadow-2xl">
+                  Tap to see all images
+                </div>
+              </div>
             </div>
             <div
               className="row-span-2 col-span-1 aspect-w-16 aspect-h-9 hidden md:block bg-contain bg-no-repeat bg-white bg-center"
-              // style={{ backgroundImage: "url('/images/renter.jpg')" }}
               style={{ backgroundImage: `url('${data.photos[1]}')` }}
             ></div>
             <div
-              className="row-span-2 col-span-1 aspect-w-16 aspect-h-9 hidden md:block bg-contain bg-no-repeat bg-white bg-center"
-              // style={{ backgroundImage: "url('/images/everyone.jpg')" }}
+              className="row-span-2 relative col-span-1 aspect-w-16 aspect-h-9 hidden md:block bg-contain bg-no-repeat bg-white bg-center"
               style={{ backgroundImage: `url('${data.photos[2]}')` }}
-            ></div>
+            >
+              <div className="absolute text-center text-lg w-full grid place-items-center text-white h-full bg-black opacity-90">
+                <p>
+                  <i className="fa-solid fa-plus"></i>
+                  <br />
+                  See more photos
+                </p>
+              </div>
+            </div>
           </div>
           {/* mobile view */}
           <div className="grid gap-y-1 bg-white p-5 sm:hidden">
@@ -102,7 +114,7 @@ function ShowProperty({ data }) {
                   <h1 className="font-weight-semibold text-gray-500">
                     Security
                   </h1>
-                  <p className="font-medium">3.6 Lacs</p>
+                  <p className="font-medium">{data.securityDeposit}</p>
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
@@ -130,13 +142,33 @@ function ShowProperty({ data }) {
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
+                    Balcony
+                  </h1>
+                  <p className="font-medium">{data.balcony}</p>
+                </span>
+                <span>
+                  <h1 className="font-weight-semibold text-gray-500">
                     Available from
                   </h1>
                   <p className="font-medium">{data.availableForm}</p>
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
-                    Floor number
+                    Lockin period
+                  </h1>
+                  <p className="font-medium">{data.lockInPeriod} months</p>
+                </span>
+                <span>
+                  <h1 className="font-weight-semibold relative text-gray-500">
+                    Floor number{' '}
+                    <span>
+                      <i className="fa-solid cursor-pointer peer fa-circle-info"></i>{' '}
+                      <span className="hidden absolute top-6  left-16 peer-hover:inline-flex bg-slate-700 text-white p-2">
+                        totalFloors - {data.totalFloors}
+                        <br />
+                        flat No- {data.flatNumber}
+                      </span>
+                    </span>
                   </h1>
                   <p className="font-medium">{data.floorNumber}</p>
                 </span>
@@ -151,6 +183,12 @@ function ShowProperty({ data }) {
                       </span>
                     ))}
                   </p>
+                </span>
+                <span>
+                  <h1 className="font-weight-semibold text-gray-500">
+                    Servant Room
+                  </h1>
+                  <p className="font-medium">{data.servantRoom}</p>
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
@@ -251,6 +289,30 @@ function ShowProperty({ data }) {
               </h1>
               <div className="grid px-4 gap-y-4 rounded bg-white py-4 ">
                 <h1 className="text-lg font-semibold">Contact Seller</h1>
+
+                <div className="w-full mx-auto tracking-wide flex items-center space-x-4">
+                  <div className="shrink-0">
+                    <img
+                      className="h-10 w-10"
+                      src={`${
+                        data.postedBy.picture
+                          ? data.postedBy.picture
+                          : '/icons/user.png'
+                      }`}
+                      alt="ChitChat Logo"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-black">
+                      {data.postedBy.name}
+                    </div>
+                    <p className="text-xs text-gray-500">Owner</p>
+                    <div className="text-black flex font-semibold text-xs">
+                      <p className="text-gray-500">email</p>:{' '}
+                      {data.postedBy.email.slice(0, 7)}...
+                    </div>
+                  </div>
+                </div>
                 <p className="text-sm font-semibold">
                   please share your contact
                 </p>

@@ -14,5 +14,4 @@ function profile() {
   );
 }
 
-export const getServerSideProps = withPageAuthRequired();
-export default profile;
+export default withPageAuthRequired(profile);

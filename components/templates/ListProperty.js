@@ -1,3 +1,4 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -15,6 +16,9 @@ function ListProperty({ INITIAL_DATA }) {
   const [uploadedImage, setUploadedImage] = useState([]);
   const [loading, setLoading] = useState(false);
   const history = useRouter();
+  const { user } = useUser();
+
+  console.log(user.picture);
 
   const { steps, currentStepIndex, next, step, isFirstStep, isLastStep, back } =
     useMultistepForm([
@@ -54,6 +58,11 @@ function ListProperty({ INITIAL_DATA }) {
     // submit data
     const temp = data;
     temp['photos'] = uploadedImage;
+    temp['postedBy'] = {
+      name: user.name,
+      email: user.email,
+      picture: user.picture,
+    };
     console.log(temp);
 
     await axios
@@ -61,7 +70,7 @@ function ListProperty({ INITIAL_DATA }) {
       .then((res) => {
         console.log(res.data);
         history.push(
-          `/showproperty/${res.data.result.objectId}-${temp.area}-sqft-${temp.rooms}-bhk-${temp.propertyType}-on-rent-in-${temp.locality}-${temp.city}`
+          `/showproperty/${res.data.results.insertedId}-${temp.area}-sqft-${temp.rooms}-bhk-${temp.propertyType}-on-rent-in-${temp.locality}-${temp.city}`
         );
       })
       .catch((err) => {
@@ -101,25 +110,26 @@ function ListProperty({ INITIAL_DATA }) {
             {/* end of loading container */}
             {step}
           </section>
-          <div className="mt-10 mb-5 flex gap-4 justify-between ">
+          <div className="mt-10 mb-5 font-header flex gap-4 justify-between ">
             {!isFirstStep && (
               <button
                 type="button"
-                className="primary_button_light"
+                className="primary_button_light flex items-center"
                 onClick={back}
               >
-                Back
+                <i className="fa-solid fa-circle-left"></i>&nbsp;back
               </button>
             )}
             <button
               type="submit"
               onClick={onSubmit}
-              className={`primary_button_without_background disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center ring-green-200 text-white bg-green-400 hover:bg-green-500 w-full ${
+              className={`primary_button_without_background disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center ring-green-200 text-white bg-green-500 hover:bg-green-600 w-full ${
                 isLastStep && 'bg-red-700'
               }`}
               disabled={loading}
             >
               {isLastStep ? 'Finish' : 'continue'}
+              <i className="fa-solid fa-circle-right ml-1"></i>
             </button>
           </div>
         </div>

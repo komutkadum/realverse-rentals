@@ -13,10 +13,12 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <UserProvider>
-      {router.pathname !== '/signin' ? <Header /> : ''}
-      <Component {...pageProps} />
-    </UserProvider>
+    <>
+      <UserProvider>
+        {router.pathname !== '/signin' ? <Header /> : ''}
+        <Component {...pageProps} />
+      </UserProvider>
+    </>
   );
 }
 

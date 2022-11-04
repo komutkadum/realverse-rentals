@@ -13,7 +13,8 @@ function PropertyDetailForm({
       {/* property type */}
       <div>
         <label className="font-semibold add_asterisk_after">
-          Lock in Period
+          Lock in Period &nbsp;
+          <span className="text-xs text-gray-500 font-thin">(in months)</span>
         </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input

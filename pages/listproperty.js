@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import ListProperty from '../components/templates/ListProperty';
 import { INITIAL_DATA } from '../lib/constants';
@@ -21,4 +22,4 @@ export async function getStaticProps() {
   };
 }
 
-export default listproperty;
+export default withPageAuthRequired(listproperty);

@@ -1,7 +1,36 @@
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import HomePropertyCard from '../cards/HomePropertyCard';
 import WhyUseCard from '../cards/WhyUseCard';
 
 function HomePage() {
+  const [locationInput, setLocationInput] = useState('');
+  const [priceRange, setPriceRange] = useState('');
+  const [rooms, setRooms] = useState('');
+  const [furnishing, setFurnishing] = useState('');
+  const router = useRouter();
+  const handleSearchForm = (e) => {
+    e.preventDefault();
+    if (
+      locationInput === '' ||
+      priceRange === '' ||
+      rooms === '' ||
+      furnishing === ''
+    ) {
+      alert('fill all the inputs');
+      return;
+    }
+    router.push({
+      pathname: '/property',
+      query: {
+        search: locationInput,
+        pr: priceRange,
+        ro: rooms,
+        fu: furnishing,
+      },
+    });
+    console.log(locationInput, priceRange, rooms, furnishing);
+  };
   return (
     <>
       <div
@@ -16,7 +45,7 @@ function HomePage() {
         <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white shadow-lg absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">
           <form
             className="grid grid-cols-12 gap-2 sm:gap-2"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSearchForm}
           >
             <div className="col-span-12 sm:col-span-6 lg:col-span-4">
               <input
@@ -24,48 +53,52 @@ function HomePage() {
                 name="searchHomePage"
                 id="searchHomePage"
                 placeholder="Location*"
-                required=""
+                onChange={(e) => setLocationInput(e.target.value)}
+                value={locationInput}
+                required
                 spellCheck="false"
                 className="block w-full rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm "
               />
             </div>
             <div className="col-span-12 sm:col-span-6 lg:col-span-2">
               <select
-                id="country"
-                name="country"
+                onChange={(e) => setPriceRange(e.target.value)}
                 className=" block w-full rounded-md border border-gray-300 py-4 bg-white px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required
               >
-                <option className="text-gray-500">Price Range*</option>
-                <option>Between 4k-10k</option>
-                <option>Between 10k-15k</option>
-                <option>Between 15k-25k</option>
-                <option>Between 25k-35k</option>
+                <option value="" className="text-gray-500">
+                  Price Range*
+                </option>
+                <option value="4000-10000">Between 4k-10k</option>
+                <option value="10000-15000">Between 10k-15k</option>
+                <option value="15000-25000">Between 15k-25k</option>
+                <option value="25000-35000">Between 25k-35k</option>
               </select>
             </div>
             <div className="col-span-6 sm:col-span-6 lg:col-span-2">
               <select
-                id="country"
-                name="country"
+                onChange={(e) => setRooms(e.target.value)}
                 className=" block w-full rounded-md border border-gray-300 py-4 bg-white px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required
               >
-                <option>Bedrooms*</option>
-                <option>+1 Rk/1 Bhk</option>
-                <option>+2 BHK</option>
-                <option>+3 BHK</option>
-                <option>+4 BHK</option>
-                <option>+5 BHK</option>
+                <option value="">Bedrooms*</option>
+                <option value="1">+1 Rk/1 Bhk</option>
+                <option value="2">+2 BHK</option>
+                <option value="3">+3 BHK</option>
+                <option value="4">+4 BHK</option>
+                <option value="5">+5 BHK</option>
               </select>
             </div>
             <div className="col-span-6 sm:col-span-6 lg:col-span-2">
               <select
-                id="country"
-                name="country"
+                onChange={(e) => setFurnishing(e.target.value)}
                 className=" block w-full rounded-md border border-gray-300 py-4 bg-white px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                required
               >
-                <option>Furnishing*</option>
-                <option>Furnished</option>
-                <option>Semi-furnished</option>
-                <option>Unfurnished</option>
+                <option value="">Furnishing*</option>
+                <option value="Fully-Furnished">Furnished</option>
+                <option value="Semi-Furnished">Semi-furnished</option>
+                <option value="Unfurnished">Unfurnished</option>
               </select>
             </div>
             <div className="col-span-12 sm:col-span-12 lg:col-span-2">

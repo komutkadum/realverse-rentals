@@ -60,7 +60,7 @@ function LocationDetailForm({
       {/* property type */}
       <div>
         <label className="font-semibold add_asterisk_after">
-          building/Project/Society (Mandatory)
+          building/Project/Society
         </label>
         <div className="flex gap-2 mt-1 tracking-wider font-semibold">
           <input

@@ -212,7 +212,7 @@ function BasicDetailForm({
           <CustomRadio
             id="fully_furnished"
             name="furnishedType"
-            text="Fully Furnished"
+            text="Fully-Furnished"
             value={furnishedType}
             updateFields={updateFields}
           />

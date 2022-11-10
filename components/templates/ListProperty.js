@@ -2,6 +2,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 import { useMultistepForm } from '../../hooks/useMultistepForm';
 import AmenitiesDetailForm from '../form/AmenitiesDetailForm';
 import BasicDetailForm from '../form/BasicDetailForm';
@@ -17,9 +18,6 @@ function ListProperty({ INITIAL_DATA }) {
   const [loading, setLoading] = useState(false);
   const history = useRouter();
   const { user } = useUser();
-
-  console.log(user.picture);
-
   const { steps, currentStepIndex, next, step, isFirstStep, isLastStep, back } =
     useMultistepForm([
       <BasicDetailForm
@@ -63,22 +61,50 @@ function ListProperty({ INITIAL_DATA }) {
       email: user.email,
       picture: user.picture,
     };
+    temp['propertyAge'] = parseInt(temp['propertyAge']);
+    temp['bathrooms'] = parseInt(temp['bathrooms']);
+    temp['balcony'] = parseInt(temp['balcony']);
+    temp['coveredParking'] = parseInt(temp['coveredParking']);
+    temp['openParking'] = parseInt(temp['openParking']);
+    temp['monthlyRent'] = parseFloat(temp['monthlyRent']);
+    temp['maintenanceCharge'] = parseFloat(temp['maintenanceCharge']);
+    temp['securityDeposit'] = parseFloat(temp['securityDeposit']);
+    temp['area'] = parseFloat(temp['area']);
+    temp['carpetArea'] = parseFloat(temp['carpetArea']);
+    temp['flatNumber'] = parseInt(temp['flatNumber']);
+    temp['floorNumber'] = parseInt(temp['floorNumber']);
+    temp['totalFloors'] = parseInt(temp['totalFloors']);
+    temp['lockInPeriod'] = parseInt(temp['lockInPeriod']);
+
     console.log(temp);
 
     await axios
       .post('/api/listproperty', temp)
       .then((res) => {
         console.log(res.data);
-        history.push(
-          `/showproperty/${res.data.results.insertedId}-${temp.area}-sqft-${temp.rooms}-bhk-${temp.propertyType}-on-rent-in-${temp.locality}-${temp.city}`
-        );
+        Swal.fire({
+          title: 'Listing Uploaded Successfull',
+          icon: 'success',
+          showDenyButton: true,
+          confirmButtonText: 'Preview Listing',
+          confirmButtonColor: 'green',
+          denyButtonText: 'Back to home',
+          allowOutsideClick: false,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            history.push(
+              `/showproperty/${res.data.results.insertedId}-${temp.area}-sqft-${temp.rooms}-bhk-${temp.propertyType}-on-rent-in-${temp.locality}-${temp.city}`
+            );
+          } else {
+            history.push('/');
+          }
+        });
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         setLoading(false);
-        alert('uploaded');
       });
   };
   return (
@@ -101,9 +127,9 @@ function ListProperty({ INITIAL_DATA }) {
           <section className="grid gap-y-10 mt-10 text-sm ">
             {/* loading container */}
             {loading && (
-              <div className="w-full h-full grid text-white  inset-0 place-items-center absolute z-20 opacity-90 tracking-wide bg-slate-600">
+              <div className="w-full h-full grid text-white  inset-0 place-items-center absolute z-20 opacity-90 tracking-wide bg-indigo-900">
                 <span className="flex items-center">
-                  <Spinner /> uploading...
+                  <Spinner /> Finishing . . .
                 </span>
               </div>
             )}
@@ -123,10 +149,13 @@ function ListProperty({ INITIAL_DATA }) {
             <button
               type="submit"
               onClick={onSubmit}
-              className={`primary_button_without_background disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center ring-green-200 text-white bg-green-500 hover:bg-green-600 w-full ${
-                isLastStep && 'bg-red-700'
-              }`}
-              disabled={loading}
+              title={
+                uploadedImage.length === 0 ? 'Upload image first' : 'upload'
+              }
+              className={`primary_button_without_background disabled:bg-gray-400 disabled:cursor-not-allowed flex justify-center items-center ring-green-200 text-white  ${
+                isLastStep ? 'hover:bg-red-700' : 'hover:bg-green-600'
+              }  w-full ${isLastStep ? 'bg-red-600' : 'bg-green-500'}`}
+              disabled={loading || (uploadedImage.length === 0 && isLastStep)}
             >
               {isLastStep ? 'Finish' : 'continue'}
               <i className="fa-solid fa-circle-right ml-1"></i>

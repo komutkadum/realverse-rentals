@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import { AMENITIES_ICON } from '../../lib/constants';
+import { formatAmount } from '../../lib/formatAmount';
 import { timeAgo } from '../../lib/timeAgo';
 
 /* eslint-disable @next/next/no-img-element */
@@ -23,7 +24,7 @@ function ShowProperty({ data }) {
               </span>
             </h1>
             <p className="font-light text-sm font-para text-gray-500">
-              {data.furnishedType} | {data.area} sq ft
+              {data.furnishedType} | {formatAmount(data.area)} sq ft
             </p>
             <p className="font-light text-sm font-para text-gray-500">
               {data.buildingProjectSociety}, {data.locality}, {data.city}
@@ -35,7 +36,7 @@ function ShowProperty({ data }) {
           <div className="text-right grid gap-y-1">
             <h1 className="text-2xl font-header font-semibold">
               <i className="fa-solid fa-indian-rupee-sign"></i>{' '}
-              {data.monthlyRent}
+              {formatAmount(data.monthlyRent)}
             </h1>
             <p className="font-light text-sm font-para text-gray-500">
               Added {timeAgo(data.createdDate)}
@@ -114,7 +115,10 @@ function ShowProperty({ data }) {
                   <h1 className="font-weight-semibold text-gray-500">
                     Security
                   </h1>
-                  <p className="font-medium">{data.securityDeposit}</p>
+                  <p className="font-medium">
+                    <i className="fa-solid fa-indian-rupee-sign mr-0.5"></i>
+                    {formatAmount(data.securityDeposit)}
+                  </p>
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
@@ -126,7 +130,15 @@ function ShowProperty({ data }) {
                   <h1 className="font-weight-semibold text-gray-500">
                     Build up area
                   </h1>
-                  <p className="font-medium">{data.area} sq.ft</p>
+                  <p className="font-medium">{formatAmount(data.area)} sq.ft</p>
+                </span>
+                <span>
+                  <h1 className="font-weight-semibold text-gray-500">
+                    Carpet area
+                  </h1>
+                  <p className="font-medium">
+                    {formatAmount(data.carpetArea)} sq.ft
+                  </p>
                 </span>
                 <span>
                   <h1 className="font-weight-semibold text-gray-500">
@@ -177,11 +189,9 @@ function ShowProperty({ data }) {
                     Lease type
                   </h1>
                   <p className="font-medium">
-                    {data.preferedTenantType.map((item) => (
-                      <span key={item} className="mr-1">
-                        {item.split('_')[0]}
-                      </span>
-                    ))}
+                    {data.preferedTenantType
+                      .map((item) => item.split('_')[0])
+                      .join(' / ')}
                   </p>
                 </span>
                 <span>
@@ -214,12 +224,7 @@ function ShowProperty({ data }) {
                   </h1>
                   <p className="font-medium">{data.facing}</p>
                 </span>
-                <span>
-                  <h1 className="font-weight-semibold text-gray-500">
-                    Carpet area
-                  </h1>
-                  <p className="font-medium">{data.carpetArea} sq.ft</p>
-                </span>
+
                 <span className="col-span-2">
                   <h1 className="font-extrabold">About this property</h1>
                   <p className=" py-3 text-gray-500 text-sm font-medium">

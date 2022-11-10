@@ -75,7 +75,7 @@ function TimelineStep({ currentStepIndex }) {
   }
 
   return (
-    <ol className="relative border-l-4 border-indigo-200 ">
+    <ol className="relative border-l-4 border-green-200 ">
       {timelineStep.map((item, index) => (
         <li className="mb-20 ml-6 " key={item.id}>
           <span

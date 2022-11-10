@@ -16,7 +16,7 @@ function Contact() {
 
         <div className="max-w-5xl mx-auto mt-12 sm:mt-16">
           <div className="grid grid-cols-1 gap-6 px-2 text-center md:px-0 md:grid-cols-3">
-            <div className="overflow-x-auto border relative group bg-white shadow">
+            <div className="overflow-x-auto border relative group bg-white shadow-lg">
               <BorderTransform color="bg-indigo-300" />
               <div className="p-6 relative">
                 <svg
@@ -42,7 +42,7 @@ function Contact() {
               </div>
             </div>
 
-            <div className="overflow-x-auto  relative group bg-white shadow">
+            <div className="overflow-x-auto  relative group bg-white shadow-lg">
               <BorderTransform color="bg-indigo-300" />
               <div className="p-6">
                 <svg
@@ -68,7 +68,7 @@ function Contact() {
               </div>
             </div>
 
-            <div className="overflow-x-auto  relative group bg-white shadow">
+            <div className="overflow-x-auto  relative group bg-white shadow-lg">
               <BorderTransform color="bg-indigo-300" />
               <div className="p-6">
                 <svg
@@ -99,7 +99,7 @@ function Contact() {
             </div>
           </div>
 
-          <div className="mt-6 overflow-x-auto relative group bg-white shadow">
+          <div className="mt-6 overflow-x-auto relative group bg-white shadow-lg">
             <BorderTransform color="bg-indigo-300" />
 
             <div className="px-6 py-12 sm:p-12">
@@ -112,7 +112,7 @@ function Contact() {
                   <div>
                     <label
                       htmlFor=""
-                      className="text-base font-medium text-gray-900"
+                      className="text-base  font-medium text-gray-900"
                     >
                       {' '}
                       Your name{' '}
@@ -122,8 +122,8 @@ function Contact() {
                         type="text"
                         name=""
                         id=""
-                        placeholder="Enter your full name"
-                        className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-indigo-600 caret-indigo-600"
+                        placeholder="john doe"
+                        className="block  w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-indigo-600 caret-indigo-600"
                       />
                     </div>
                   </div>
@@ -141,7 +141,7 @@ function Contact() {
                         type="email"
                         name=""
                         id=""
-                        placeholder="Enter your full name"
+                        placeholder="Johndoe@gmail.com"
                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-indigo-600 caret-indigo-600"
                       />
                     </div>
@@ -160,7 +160,7 @@ function Contact() {
                         type="tel"
                         name=""
                         id=""
-                        placeholder="Enter your full name"
+                        placeholder="98653+ . . ."
                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-indigo-600 caret-indigo-600"
                       />
                     </div>
@@ -179,7 +179,7 @@ function Contact() {
                         type="text"
                         name=""
                         id=""
-                        placeholder="Enter your full name"
+                        placeholder="company"
                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-indigo-600 caret-indigo-600"
                       />
                     </div>
@@ -197,7 +197,7 @@ function Contact() {
                       <textarea
                         name=""
                         id=""
-                        placeholder=""
+                        placeholder="write your message..."
                         className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-indigo-600 caret-indigo-600"
                         rows="4"
                       ></textarea>

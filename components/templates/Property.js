@@ -1,61 +1,52 @@
-import React from 'react';
-import { kFormatter } from '../../lib/formatAmount';
+import React, { useState } from 'react';
 import PropertyCard from '../cards/PropertyCard';
+import FilterCheckbox from '../utility/FilterCheckbox';
+import FilterCheckboxContainer from '../utility/FilterCheckboxContainer';
+import FilterModal from '../utility/FilterModal';
 
-function Property({ data, search, priceRange }) {
+function Property({ dataprops, search, priceRange }) {
+  const [data, setData] = useState(dataprops);
+  const [modal, setModal] = useState(false);
+
   return (
     <>
       <div className="w-full mx-auto ">
         {/* <!-- filters --> */}
-        <div className="bg-gray-100 shadow-sm border-b border-gray-400 sticky top-16 z-20">
+        <div className="bg-gray-100 shadow-sm border-b border-gray-400 sticky top-16 z-10">
           <div className="px-4 py-2.5 text-sm max-w-7xl mx-auto font-header">
+            <FilterCheckboxContainer text="BHK Type">
+              <FilterCheckbox id="oneRKID" text="1RK/BHK" />
+              <FilterCheckbox id="twoBHKID" text="2BHK" />
+              <FilterCheckbox id="threeBHKID" text="3BHK" />
+              <FilterCheckbox id="threePlusBHKID" text="3+BHK" />
+            </FilterCheckboxContainer>
+            <FilterCheckboxContainer text="Price Range">
+              <FilterCheckbox id="fourtenPriceId" text="4k-10k" />
+              <FilterCheckbox id="tenfifteenPriceId" text="10k-15k" />
+              <FilterCheckbox id="fifteentwentyfivePriceId" text="15k-25k" />
+              <FilterCheckbox id="twentyfivethirtyfivePriceId" text="20k-35k" />
+            </FilterCheckboxContainer>
+            <FilterCheckboxContainer text="Listed By">
+              <FilterCheckbox id="ownerListedID" text="Owner" />
+              <FilterCheckbox id="dealerListedID" text="Dealer" />
+            </FilterCheckboxContainer>
+            <FilterCheckboxContainer text="Furnishing">
+              <FilterCheckbox id="fullyFurnishingID" text="Fully-Furnished" />
+              <FilterCheckbox id="semiFurnishingID" text="Semi-Furnished" />
+              <FilterCheckbox id="unFurnishingID" text="Unfurnished" />
+            </FilterCheckboxContainer>
+            <FilterCheckboxContainer text="Property Type">
+              <FilterCheckbox id="villaPropertyTypeID" text="Villa" />
+              <FilterCheckbox id="apartmentPropertyTypeID" text="Apartment" />
+              <FilterCheckbox
+                id="independentPropertyTypeID"
+                text="Independent"
+              />
+            </FilterCheckboxContainer>
             <button
-              id="roomsDropdownDefault"
-              data-dropdown-toggle="roomsDropdown"
               className="px-3 mr-2 my-1 py-1.5 primary_button_gray"
+              onClick={() => setModal(true)}
             >
-              BHK Type <i className="fa-solid fa-angle-down"></i>
-            </button>
-            <div
-              id="roomsDropdown"
-              className="hidden z-10 text-center bg-white rounded-md divide-y divide-gray-100 shadow-xl "
-            >
-              <div className="grid px-6 font-light text-xs gap-y-5 py-4 text-gray-600 font-header">
-                <span>
-                  <input
-                    type="checkbox"
-                    id="oneRKPropertyID"
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="oneRKPropertyID"
-                    className="py-1.5 px-2.5 rounded-full  border border-gray-300  cursor-pointer hover:bg-gray-100 peer-checked:bg-indigo-600 peer-checked:text-white"
-                  >
-                    1 RK
-                  </label>
-                </span>
-              </div>
-            </div>
-            <button className="px-3 mr-2 my-1 py-1.5 primary_button_gray ">
-              {kFormatter(priceRange[0])} - {kFormatter(priceRange[1])}{' '}
-              <i className="fa-solid fa-angle-down"></i>
-            </button>
-            <select className="my-1 mr-2 py-1 w-32 primary_button_gray">
-              <option>Listed By</option>
-              <option>hello</option>
-              <option>hello</option>
-              <option>hello</option>
-            </select>
-            <button className="px-3 mr-2 my-1 py-1.5 primary_button_gray">
-              Listed By <i className="fa-solid fa-angle-down"></i>
-            </button>
-            <button className="px-3 mr-2 my-1 py-1.5 primary_button_gray">
-              Furnishing <i className="fa-solid fa-angle-down"></i>
-            </button>
-            <button className="px-3 mr-2 my-1 py-1.5 primary_button_gray">
-              Property Type <i className="fa-solid fa-angle-down"></i>
-            </button>
-            <button className="px-3 mr-2 my-1 py-1.5 primary_button_gray">
               More filters <i className="fa-solid fa-angle-down"></i>
             </button>
           </div>
@@ -73,7 +64,6 @@ function Property({ data, search, priceRange }) {
               {data.map((item) => (
                 <PropertyCard key={item._id} propertyData={item} />
               ))}
-
               {/* <!-- end of the card --> */}
             </div>
             <div className="col-span-12 md:col-span-4  gap-y-4 p-0 md:p-4">
@@ -86,6 +76,9 @@ function Property({ data, search, priceRange }) {
           </div>
         </div>
       </div>
+      {/* modal */}
+      <FilterModal modal={modal} setModal={setModal} />
+      {/* end of modal */}
     </>
   );
 }

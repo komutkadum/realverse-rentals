@@ -9,7 +9,7 @@ function property({ data, search, priceRange }) {
       <Head>
         <title>Properties</title>
       </Head>
-      <Property data={data} search={search} priceRange={priceRange} />
+      <Property dataprops={data} search={search} priceRange={priceRange} />
     </>
   );
 }

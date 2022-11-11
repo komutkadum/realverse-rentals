@@ -1,14 +1,14 @@
-function FilterCheckbox() {
+function FilterCheckbox({ id, text }) {
   return (
-    <>
-      <input id="onerk" type="checkbox" className="hidden peer" />
+    <div className="flex">
+      <input type="checkbox" id={id} className="peer hidden" />
       <label
-        htmlFor="onerk"
-        className="peer-checked:bg-indigo-600  peer-checked:text-white w-full py-2 px-3 border-b hover:bg-gray-100 cursor-pointer"
+        htmlFor={id}
+        className="peer-checked:bg-gray-500 peer-active:bg-gray-400 peer-active:text-white peer-checked:border-white px-4 py-2 border-b border-gray-400 hover:bg-gray-100 cursor-pointer peer-checked:text-white w-full"
       >
-        1RK / BHK
+        {text}
       </label>
-    </>
+    </div>
   );
 }
 

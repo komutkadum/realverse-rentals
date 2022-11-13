@@ -3,13 +3,20 @@ import React from 'react';
 import Property from '../components/templates/Property';
 import clientPromise from '../lib/mongodb';
 
-function property({ data, search, priceRange }) {
+function property({ data, search, priceRange, ro, fu, count }) {
   return (
     <>
       <Head>
         <title>Properties</title>
       </Head>
-      <Property dataprops={data} search={search} priceRange={priceRange} />
+      <Property
+        dataprops={data}
+        rooms={ro}
+        furnishing={fu}
+        search={search}
+        totalProperty={count}
+        priceRange={priceRange}
+      />
     </>
   );
 }
@@ -36,12 +43,28 @@ export async function getServerSideProps(context) {
     .sort({ createdDate: -1 })
     .toArray();
 
+  const count = await collection
+    .find({
+      locality: { $regex: `${search}`, $options: 'i' },
+      monthlyRent: {
+        $gte: parseInt(pr.split('-')[0]),
+        $lte: parseInt(pr.split('-')[1]),
+      },
+      rooms: `${ro}BHK`,
+      furnishedType: fu,
+    })
+    .sort({ createdDate: -1 })
+    .count();
+
   console.log(result);
   return {
     props: {
       data: JSON.parse(JSON.stringify(result)),
       search,
       priceRange: [pr.split('-')[0], pr.split('-')[1]],
+      ro,
+      fu,
+      count,
     }, // will be passed to the page component as props
   };
 }

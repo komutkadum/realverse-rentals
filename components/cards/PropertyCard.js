@@ -4,7 +4,7 @@ import { timeAgo } from '../../lib/timeAgo';
 
 function PropertyCard({ propertyData }) {
   return (
-    <div className="grid grid-cols-8 font-header duration-200 hover:shadow-xl border-gray-300 overflow-hidden border font-para bg-white">
+    <div className="grid grid-cols-8 font-header duration-200 shadow-md hover:shadow-xl border-gray-300 overflow-hidden border font-para bg-white">
       <div
         className="aspect-w-16  col-span-8 bg-center bg-no-repeat bg-cover md:col-span-4 aspect-h-10 border-r border-b-2 md:border-b-0"
         style={{

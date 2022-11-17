@@ -19,7 +19,7 @@ function Accordion({ question = 'hello', answer = 'iam' }) {
           </svg>
         </div>
       </summary>
-      <div className="p-4 pt-0 font-para text-sm">
+      <div className="p-4 pt-0 font-para text-sm animate__animated animate__bounceIn">
         <p className="text-gray-700">{answer}</p>
       </div>
     </details>

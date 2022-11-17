@@ -245,7 +245,7 @@ function ShowProperty({ data }) {
                     key={item}
                   >
                     <img src={`/icons/${AMENITIES_ICON[item]}.png`} />
-                    <h1 className="text-xs">Gas Pipeline</h1>
+                    <h1 className="text-xs">{item}</h1>
                   </div>
                 ))}
               </div>
@@ -262,7 +262,7 @@ function ShowProperty({ data }) {
                     key={item}
                   >
                     <img src={`/icons/${AMENITIES_ICON[item]}.png`} />
-                    <h1 className="text-xs">Gas Pipeline</h1>
+                    <h1 className="text-xs">{item}</h1>
                   </div>
                 ))}
               </div>

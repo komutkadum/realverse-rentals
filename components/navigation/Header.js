@@ -129,31 +129,27 @@ function Header() {
                     </a>
                   ) : (
                     <>
-                      <Link href="/signin">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                          role="menuitem"
-                          tabIndex="-1"
-                          id="user-menu-item-0"
-                        >
-                          {' '}
-                          <i className="fa-solid fa-right-to-bracket"></i>
-                          &nbsp;&nbsp;Login
-                        </a>
-                      </Link>
-                      <Link href="/signin">
-                        <a
-                          href="#"
-                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                          role="menuitem"
-                          tabIndex="-1"
-                          id="user-menu-item-1"
-                        >
-                          <i className="fa-solid fa-user-plus"></i>
-                          &nbsp;&nbsp;Signup
-                        </a>
-                      </Link>
+                      <a
+                        href="/api/auth/login"
+                        className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="user-menu-item-0"
+                      >
+                        {' '}
+                        <i className="fa-solid fa-right-to-bracket"></i>
+                        &nbsp;&nbsp;Login
+                      </a>
+                      <a
+                        href="/api/auth/login"
+                        className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="user-menu-item-1"
+                      >
+                        <i className="fa-solid fa-user-plus"></i>
+                        &nbsp;&nbsp;Signup
+                      </a>
                     </>
                   )}
                 </div>

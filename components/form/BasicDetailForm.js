@@ -3,6 +3,7 @@ import Checkbox from '../utility/Checkbox';
 import CustomRadio from '../utility/CustomRadio';
 
 function BasicDetailForm({
+  propertyUploaderType,
   propertyType,
   propertyAge,
   rooms,
@@ -23,6 +24,32 @@ function BasicDetailForm({
 }) {
   return (
     <>
+      <div>
+        <label className="font-semibold add_asterisk_after">Are you?</label>
+        <div className="flex flex-wrap gap-2 mt-1 tracking-wider font-semibold">
+          <CustomRadio
+            id="owner"
+            value={propertyUploaderType}
+            updateFields={updateFields}
+            name="propertyUploaderType"
+            text="Owner"
+          />
+          <CustomRadio
+            id="broker"
+            name="propertyUploaderType"
+            value={propertyUploaderType}
+            updateFields={updateFields}
+            text="Broker"
+          />
+          <CustomRadio
+            id="company"
+            name="propertyUploaderType"
+            value={propertyUploaderType}
+            updateFields={updateFields}
+            text="Company"
+          />
+        </div>
+      </div>
       {/* property type */}
       <div>
         <label className="font-semibold add_asterisk_after">

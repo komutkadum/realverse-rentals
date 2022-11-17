@@ -24,7 +24,7 @@ function Property({
   const [bhkTypeFilter, setBhkTypeFilter, getBhkTypeFilter] = useSetState([]);
   const [priceRangeFilter, setPriceRangeFilter, getPriceRangeFilter] =
     useSetState([]);
-  const [listedByFilter, setListByFilter, getListByFilter] = useSetState([]);
+  const [listedByFilter, setListByFilter, getListedByFilter] = useSetState([]);
   const [furnishingFilter, setFurnishingFilter, getFurnishingFilter] =
     useSetState([]);
   const [propertyTypeFilter, setPropertyTypeFilter, getPropertyTypeFilter] =
@@ -59,6 +59,7 @@ function Property({
         amenitiesFilter: await getAmenitiesFilter(),
         builtUpAreaFilter: await getBuiltUpAreaFilter(),
         bathroomFilter: await getBathroomFilter(),
+        listedByFilter: await getListedByFilter(),
         rooms,
         furnishing,
         priceRange,
@@ -88,6 +89,7 @@ function Property({
     setAddedFilter('');
     setAvailableFilter('');
     setBuiltUpAreaFilter(0);
+    setListByFilter([]);
     updateFilterAndSubmit();
   };
 
@@ -179,24 +181,35 @@ function Property({
                 updateFilterAndSubmit={updateFilterAndSubmit}
               />
             </FilterCheckboxContainer>
-            {/* <FilterCheckboxContainer text="Listed By">
+            <FilterCheckboxContainer
+              text="Listed By"
+              edited={listedByFilter.length > 0}
+            >
               <FilterCheckbox
                 id="ownerListedID"
                 text="Owner"
                 value={listedByFilter}
                 dbValue="Owner"
                 setValue={setListByFilter}
-                onChangeInputUsingFilter={onChangeInputUsingFilter}
+                updateFilterAndSubmit={updateFilterAndSubmit}
               />
               <FilterCheckbox
                 id="dealerListedID"
-                text="Dealer"
+                text="Broker"
                 value={listedByFilter}
-                dbValue="Dealer"
+                dbValue="Broker"
                 setValue={setListByFilter}
-                onChangeInputUsingFilter={onChangeInputUsingFilter}
+                updateFilterAndSubmit={updateFilterAndSubmit}
               />
-            </FilterCheckboxContainer> */}
+              <FilterCheckbox
+                id="companyListedID"
+                text="Company"
+                value={listedByFilter}
+                dbValue="Company"
+                setValue={setListByFilter}
+                updateFilterAndSubmit={updateFilterAndSubmit}
+              />
+            </FilterCheckboxContainer>
             <FilterCheckboxContainer
               text="Furnishing"
               edited={furnishingFilter.length > 0}
@@ -292,6 +305,7 @@ function Property({
               bhkTypeFilter.length > 0 ||
               priceRangeFilter.length > 0 ||
               furnishingFilter.length > 0 ||
+              listedByFilter.length > 0 ||
               propertyTypeFilter.length > 0) && (
               <button
                 className="px-3 mr-2 my-1 py-1.5 text-indigo-600 hover:text-indigo-900 underline underline-offset-2"

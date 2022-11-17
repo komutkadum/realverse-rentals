@@ -37,7 +37,7 @@ export async function getServerSideProps(context) {
         $gte: parseInt(pr.split('-')[0]),
         $lte: parseInt(pr.split('-')[1]),
       },
-      rooms: `${ro}BHK`,
+      rooms: ro === '0' ? `${parseInt(ro) + 1}RK` : `${ro}BHK`,
       furnishedType: fu,
     })
     .sort({ createdDate: -1 })
@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
         $gte: parseInt(pr.split('-')[0]),
         $lte: parseInt(pr.split('-')[1]),
       },
-      rooms: `${ro}BHK`,
+      rooms: ro === '0' ? `${parseInt(ro) + 1}RK` : `${ro}BHK`,
       furnishedType: fu,
     })
     .sort({ createdDate: -1 })

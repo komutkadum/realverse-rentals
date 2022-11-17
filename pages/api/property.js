@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const { method, body } = req;
 
     if (method === 'POST') {
-      console.log(body.bhkTypeFilter);
+      console.log(body.listedByFilter);
       const {
         bhkTypeFilter,
         furnishingFilter,
@@ -18,6 +18,7 @@ export default async function handler(req, res) {
         bathroomFilter,
         amenitiesFilter,
         ageOfPropertyFilter,
+        listedByFilter,
         rooms,
         furnishing,
         priceRange,
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
         priceRangeTemp.push(parseInt(split[0]));
         priceRangeTemp.push(parseInt(split[1]));
       }
-
+      // getting the result
       const result = await collection
         .find({
           rooms: {
@@ -59,6 +60,12 @@ export default async function handler(req, res) {
                     'Independent House',
                     'Independent Floor',
                   ],
+          },
+          propertyUploaderType: {
+            $in:
+              listedByFilter.length > 0
+                ? listedByFilter
+                : ['Owner', 'Broker', 'Company'],
           },
           bathrooms: {
             $gte: bathroomFilter !== '' ? parseInt(bathroomFilter) : 0,
@@ -98,6 +105,8 @@ export default async function handler(req, res) {
           },
         })
         .toArray();
+
+      //counting the result
       const count = await collection
         .find({
           rooms: {
@@ -126,6 +135,12 @@ export default async function handler(req, res) {
                     'Independent House',
                     'Independent Floor',
                   ],
+          },
+          propertyUploaderType: {
+            $in:
+              listedByFilter.length > 0
+                ? listedByFilter
+                : ['Owner', 'Broker', 'Company'],
           },
           bathrooms: {
             $gte: bathroomFilter !== '' ? parseInt(bathroomFilter) : 0,

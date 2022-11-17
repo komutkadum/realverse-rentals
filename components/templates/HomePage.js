@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import HomePropertyCard from '../cards/HomePropertyCard';
@@ -52,12 +53,13 @@ function HomePage() {
                 type="text"
                 name="searchHomePage"
                 id="searchHomePage"
+                autoComplete="off"
                 placeholder="Location*"
                 onChange={(e) => setLocationInput(e.target.value)}
                 value={locationInput}
                 required
                 spellCheck="false"
-                className="block w-full rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm "
+                className="block w-full  rounded-md border-gray-300 shadow-sm py-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm "
               />
             </div>
             <div className="col-span-12 sm:col-span-6 lg:col-span-2">
@@ -82,11 +84,11 @@ function HomePage() {
                 required
               >
                 <option value="">Bedrooms*</option>
-                <option value="1">+1 Rk/1 Bhk</option>
-                <option value="2">+2 BHK</option>
-                <option value="3">+3 BHK</option>
-                <option value="4">+4 BHK</option>
-                <option value="5">+5 BHK</option>
+                <option value="0">1 Rk</option>
+                <option value="1">1 BHK</option>
+                <option value="2">2 BHK</option>
+                <option value="3">3 BHK</option>
+                <option value="4">3+ BHK</option>
               </select>
             </div>
             <div className="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -115,13 +117,16 @@ function HomePage() {
       </div>
 
       <div className="max-w-7xl text-center mx-auto py-24 font-header text-gray-700 font-bold">
-        <h1 className="text-center text-2xl">Trusted By</h1>
-        <div className="mt-10 md:flex text-4xl justify-evenly font-extrabold">
-          <div>Realverse</div>
-          <div>Android</div>
-          <div>React</div>
-          <div>Algolia</div>
-          <div>Google</div>
+        <h1 className="text-center text-2xl">Our Customer Says</h1>
+        <div className="mt-10 md:flex text-xl justify-evenly font-thin">
+          <div>
+            <i>
+              <q>
+                &nbsp;I have had the best assitance in finding my room, thanks
+                to realverse rentals.
+              </q>
+            </i>
+          </div>
         </div>
       </div>
 
@@ -199,18 +204,21 @@ function HomePage() {
           </p>
           <div className="max-w-2xl mx-auto">
             <div className="mt-12 sm:flex">
-              <button
+              <a
+                href="/api/auth/login"
                 type="button"
                 className="py-4 px-6 mr-4 mb-2 sm:mb-0 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
               >
                 Sign up for free
-              </button>
-              <button
-                type="button"
-                className="py-4 px-6  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-              >
-                <i className="fa-solid fa-phone animate-pulse"></i> Enquire Us
-              </button>
+              </a>
+              <Link href="/contact">
+                <button
+                  type="button"
+                  className="py-4 px-6  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                >
+                  <i className="fa-solid fa-phone animate-pulse"></i> Enquire Us
+                </button>
+              </Link>
             </div>
           </div>
         </div>

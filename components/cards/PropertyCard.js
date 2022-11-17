@@ -108,7 +108,8 @@ function PropertyCard({ propertyData }) {
       <div className="col-span-8 grid sm:flex w-full gap-y-2 sm:justify-between border-t-2 items-center p-3">
         <div>
           <p className="text-xs text-gray-500">
-            Updated {timeAgo(propertyData.createdDate)} by owner
+            Updated {timeAgo(propertyData.createdDate)} by{' '}
+            <b>{propertyData.propertyUploaderType}</b>
           </p>
           <h3 className="font-bold text-sm sm:text-base">
             {propertyData.postedBy.name}

@@ -135,18 +135,24 @@ function Footer() {
               Connect with us
             </h2>
             <div className="flex gap-x-4 justify-center md:justify-start">
-              <Link href="#">
+              <a
+                href="https://www.facebook.com/profile.php?id=100075624316888"
+                target="blank"
+              >
                 <i className="fa-brands fa-facebook hover:text-blue-600 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
-              </Link>
-              <Link href="#">
+              </a>
+              {/* <Link href="#">
                 <i className="fa-brands fa-twitter hover:text-sky-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link>
               <Link href="#">
                 <i className="fa-brands fa-youtube hover:text-rose-600 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
-              </Link>
-              <Link href="#">
+              </Link> */}
+              <a
+                href="https://www.instagram.com/realverseproptech/"
+                target="blank"
+              >
                 <i className="fa-brands fa-instagram hover:text-red-400 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
-              </Link>
+              </a>
             </div>
             <h2 className="text-white mt-5 tracking-widest font-bold text-lg uppercase mb-5 font-header">
               Contact us

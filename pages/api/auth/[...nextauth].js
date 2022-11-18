@@ -13,14 +13,8 @@ export const authOptions = {
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     }),
     GoogleProvider({
-      clientId:
-        process.env.NODE_ENV === 'development'
-          ? process.env.GOOGLE_CLIENT_ID
-          : process.env.GOOGLE_CLIENT_ID_PROD,
-      clientSecret:
-        process.env.NODE_ENV === 'development'
-          ? process.env.GOOGLE_CLIENT_SECRET
-          : process.env.GOOGLE_CLIENT_SECRET_PROD,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     // ...add more providers here
   ],

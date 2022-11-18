@@ -18,6 +18,6 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-  secret: '+VjM8LLpe7Jr987XSNFA7NWMt+U4qPCTTJYOOEfOtCw=',
+  secret: process.env.NEXTAUTH_SECRET,
 };
 export default NextAuth(authOptions);

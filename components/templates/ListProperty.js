@@ -1,5 +1,5 @@
-import { useUser } from '@auth0/nextjs-auth0';
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
@@ -17,7 +17,7 @@ function ListProperty({ INITIAL_DATA }) {
   const [uploadedImage, setUploadedImage] = useState([]);
   const [loading, setLoading] = useState(false);
   const history = useRouter();
-  const { user } = useUser();
+  const { data: session } = useSession();
   const { steps, currentStepIndex, next, step, isFirstStep, isLastStep, back } =
     useMultistepForm([
       <BasicDetailForm
@@ -57,9 +57,9 @@ function ListProperty({ INITIAL_DATA }) {
     const temp = data;
     temp['photos'] = uploadedImage;
     temp['postedBy'] = {
-      name: user.name,
-      email: user.email,
-      picture: user.picture,
+      name: session.user.name,
+      email: session.user.email,
+      picture: session.user.image,
     };
     temp['propertyAge'] = parseInt(temp['propertyAge']);
     temp['bathrooms'] = parseInt(temp['bathrooms']);

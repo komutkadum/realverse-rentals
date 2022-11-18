@@ -1,11 +1,11 @@
-import { useUser } from '@auth0/nextjs-auth0';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 function ProfileSidebar() {
   const router = useRouter();
-  const { user } = useUser();
+  const { data: session } = useSession();
   return (
     <>
       {/* <!-- left sidebar --> */}
@@ -13,14 +13,14 @@ function ProfileSidebar() {
         <div className="sticky top-24 bg-white py-10 border rounded-xl">
           <div className="text-center">
             <div className="ring-2 ring-offset-8 grid place-items-center ring-indigo-600 w-32 mx-auto rounded-full mb-4">
-              {user && user.picture ? (
-                <Image
-                  src={user && user.picture}
-                  title={user && user.picture}
+              {session && session.user.image ? (
+                <img
+                  src={session && session.user.image}
+                  title={session && session.user.image}
                   height="128"
                   width="128"
                   className="rounded-full"
-                  alt={user && user.name}
+                  alt={session && session.user.name}
                 />
               ) : (
                 <Image
@@ -32,9 +32,9 @@ function ProfileSidebar() {
               )}
             </div>
             <h5 className="text-xl font-medium leading-tight mb-2">
-              {user && user.name}
+              {session && session.user.name}
             </h5>
-            <p className="text-gray-500">{user && user.email}</p>
+            <p className="text-gray-500">{session && session.user.email}</p>
           </div>
           <div className="relative bg-white  ">
             <div className="flex flex-col sm:flex-row sm:justify-around ">

@@ -1,8 +1,8 @@
-import { useUser } from '@auth0/nextjs-auth0';
+import { useSession } from 'next-auth/react';
 import ProfileSidebar from '../navigation/ProfileSidebar';
 
 function Profile() {
-  const { user } = useUser();
+  const { data: session } = useSession();
   return (
     <>
       <div className="">
@@ -19,13 +19,13 @@ function Profile() {
                   <input
                     type="text"
                     className="border-0 mb-2 border-b focus:outline-none focus:border-0"
-                    value={user && user.name}
+                    value={session && session.user.name}
                   />
                   <label className="text-sm font-bold">Email</label>
                   <input
                     type="Email"
                     className="border-0 mb-2 border-b"
-                    value={user && user.email}
+                    value={session && session.user.email}
                   />
                   <button className="primary_button_without p-3 w-1/2">
                     Save changes
@@ -41,6 +41,7 @@ function Profile() {
                     placeholder="Phone"
                     className="border-0 mb-2 border-b"
                     value=""
+                    readOnly
                   />
                   <button
                     className="bg-gray-4 bg-gray-200  py-3 px-3 w-24 sm:text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

@@ -1,9 +1,17 @@
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useSession } from 'next-auth/react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import ListProperty from '../components/templates/ListProperty';
 import { INITIAL_DATA } from '../lib/constants';
 
 function listproperty({ INITIAL_DATA }) {
+  const { status } = useSession();
+  const router = useRouter();
+
+  if (status === 'unauthenticated') {
+    router.push('/signin');
+  }
   return (
     <>
       <Head>
@@ -22,4 +30,4 @@ export async function getStaticProps() {
   };
 }
 
-export default withPageAuthRequired(listproperty);
+export default listproperty;

@@ -1,12 +1,12 @@
-import { useUser } from '@auth0/nextjs-auth0';
-import Image from 'next/image';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import Script from 'next/script';
 import React, { useState } from 'react';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, error, isLoading } = useUser();
+  const { data: session, status } = useSession();
+
   return (
     <>
       <nav className="bg-white sticky top-0 z-20 shadow">
@@ -57,13 +57,13 @@ function Header() {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 text-slate-700 items-center font-extrabold hover:text-slate-500 hover:underline hover:underline-offset-8 cursor-pointer text-2xl  font-header">
-                <Link href="/">Realverse Rentals</Link>
+                <Link href="/">Realverse Rentals </Link>
               </div>
             </div>
             <div className="absolute hidden sm:flex inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <Link href="/listproperty">
-                <button type="button" className="primary_button ">
-                  <i className="fa-solid fa-clipboard-list"></i> List Property
+                <button type="button" className="primary_button">
+                  <i className="fa-solid fa-clipboard-list"></i> List Property{' '}
                 </button>
               </Link>
               {/* <!-- Profile dropdown --> */}
@@ -71,18 +71,22 @@ function Header() {
                 <div>
                   <button
                     type="button"
-                    className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className={`${
+                      status === 'loading' && 'animate-ping'
+                    } flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
                     id="dropdownDefault"
                     data-dropdown-toggle="dropdown"
                     onClick={() => setIsMenuOpen((prev) => !prev)}
                   >
                     <span className="sr-only">Open user menu</span>
-                    <Image
+                    <img
                       className="h-8 w-8 rounded-full"
                       width="32"
                       height="32"
-                      src={`${user ? user.picture : '/icons/user.png'}`}
-                      alt="hello"
+                      src={`${
+                        session ? session.user.image : '/icons/user.png'
+                      }`}
+                      alt={session && session.user.name}
                     />
                   </button>
                 </div>
@@ -115,10 +119,11 @@ function Header() {
                       &nbsp;&nbsp;My activities
                     </a>
                   </Link>
-                  {user ? (
+                  {session ? (
                     <a
-                      href="/api/auth/logout"
-                      className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                      type="button"
+                      onClick={() => signOut()}
+                      className="block px-4 py-2 text-sm cursor-pointer hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-0"
@@ -129,27 +134,29 @@ function Header() {
                     </a>
                   ) : (
                     <>
-                      <a
-                        href="/api/auth/login"
-                        className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                        role="menuitem"
-                        tabIndex="-1"
-                        id="user-menu-item-0"
-                      >
-                        {' '}
-                        <i className="fa-solid fa-right-to-bracket"></i>
-                        &nbsp;&nbsp;Login
-                      </a>
-                      <a
-                        href="/api/auth/login"
-                        className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
-                        role="menuitem"
-                        tabIndex="-1"
-                        id="user-menu-item-1"
-                      >
-                        <i className="fa-solid fa-user-plus"></i>
-                        &nbsp;&nbsp;Signup
-                      </a>
+                      <Link href="/signin">
+                        <a
+                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                          role="menuitem"
+                          tabIndex="-1"
+                          id="user-menu-item-0"
+                        >
+                          {' '}
+                          <i className="fa-solid fa-right-to-bracket"></i>
+                          &nbsp;&nbsp;Login
+                        </a>
+                      </Link>
+                      <Link href="/signin">
+                        <a
+                          className="block px-4 py-2 text-sm hover:text-indigo-600 font-bold hover:underline hover:underline-offset-4 text-gray-700"
+                          role="menuitem"
+                          tabIndex="-1"
+                          id="user-menu-item-1"
+                        >
+                          <i className="fa-solid fa-user-plus"></i>
+                          &nbsp;&nbsp;Signup
+                        </a>
+                      </Link>
                     </>
                   )}
                 </div>

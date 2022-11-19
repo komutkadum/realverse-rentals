@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
-function HomePropertyCard() {
+function HomePropertyCard({ image }) {
   return (
     <>
       <div className="relative rounded-lg border hover:shadow-xl transition duration-300">
@@ -10,7 +10,7 @@ function HomePropertyCard() {
             <i className="fa-solid fa-heart"></i>
           </span>
           <img
-            src="/images/renter.jpg"
+            src={`/images/${image}`}
             alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
             className="h-full w-full object-cover z-0 object-center"
           />

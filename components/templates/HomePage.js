@@ -138,9 +138,9 @@ function HomePage() {
             </h2>
 
             <div className="mt-6 space-y-12 md:grid md:grid-cols-2 font-para md:gap-x-4 md:space-y-0 lg:grid-cols-3 lg:gap-x-6">
-              <HomePropertyCard />
-              <HomePropertyCard />
-              <HomePropertyCard />
+              <HomePropertyCard image="listingexample.jpg" />
+              <HomePropertyCard image="listingexample2.jpg" />
+              <HomePropertyCard image="listingexample3.jpg" />
             </div>
           </div>
         </div>

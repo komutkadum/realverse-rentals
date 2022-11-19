@@ -24,6 +24,10 @@ export default function Home() {
           content="Lookup for Residential properties for rent in India Without Brokerage.0% Brokerage,100% Genuine Owners. India's #1 Real Estate Property Website Without Brokers. Get Rent Agreement,Packers and Movers,Property Management & Registration Service in India. Owners & NRI can List/Post Property Ad for FREE."
         />
         <meta property="og:url" content="https://www.realverse.rentals" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dkyst8emo/image/upload/q_auto:eco/v1668874427/Screenshot_37_rvhdmw.webp"
+        />
       </Head>
       <HomePage />
       <Footer />

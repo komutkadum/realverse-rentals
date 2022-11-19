@@ -6,27 +6,27 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>Apartments for Rent Without Brokerage in India</title>
+        <meta
+          name="description"
+          content="Lookup for Residential properties for rent in India Without Brokerage.0% Brokerage,100% Genuine Owners. India's #1 Real Estate Property Website Without Brokers. Get Rent Agreement,Packers and Movers,Property Management & Registration Service in India. Owners & NRI can List/Post Property Ad for FREE."
+        />
+        <meta
+          name="keywords"
+          content="flats for rent, Apartments for rent, Properties for rent, without broker, no brokerage, broker free rental properties, flat, apartment, rent, rental, Realverse Proptech, realverse.rentals, realverseproptech.com"
+        />
+        <meta
+          property="og:title"
+          content="Flats, Houses, Apartments for Rent Without Brokerage in India"
+        />
+        <meta
+          property="og:description"
+          content="Lookup for Residential properties for rent in India Without Brokerage.0% Brokerage,100% Genuine Owners. India's #1 Real Estate Property Website Without Brokers. Get Rent Agreement,Packers and Movers,Property Management & Registration Service in India. Owners & NRI can List/Post Property Ad for FREE."
+        />
+        <meta property="og:url" content="https://www.realverse.rentals" />
       </Head>
       <HomePage />
       <Footer />
     </>
   );
 }
-
-// export async function getStaticProps() {
-//   try {
-//     const result = await getList();
-//     return {
-//       props: {
-//         result: JSON.stringify(result),
-//       },
-//       revalidate: 10,
-//     };
-//   } catch (e) {
-//     console.error(e);
-//     return {
-//       props: { isConnected: false },
-//     };
-//   }
-// }

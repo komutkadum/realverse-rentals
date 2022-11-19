@@ -18,13 +18,13 @@ function Footer() {
                     </a>
                   </Link>
                 </li>
-                <li className="mb-4">
+                {/* <li className="mb-4">
                   <Link href="/team">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       Teams
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="mb-4">
                   <Link href="/termsandservices">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
@@ -99,13 +99,13 @@ function Footer() {
                 Explore
               </h2>
               <ul className="font-para">
-                <li className="mb-4 ">
+                {/* <li className="mb-4 ">
                   <Link href="/news">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       News
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li className="mb-4 ">
                   <Link href="/blog">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
@@ -120,13 +120,13 @@ function Footer() {
                     </a>
                   </Link>
                 </li>
-                <li className="mb-4 ">
+                {/* <li className="mb-4 ">
                   <Link href="/International">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
                       International
                     </a>
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </li>
@@ -139,7 +139,7 @@ function Footer() {
                 href="https://www.facebook.com/profile.php?id=100075624316888"
                 target="blank"
               >
-                <i className="fa-brands fa-facebook hover:text-blue-600 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
+                <i className="fa-brands fa-facebook hover:text-blue-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </a>
               {/* <Link href="#">
                 <i className="fa-brands fa-twitter hover:text-sky-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
@@ -151,7 +151,7 @@ function Footer() {
                 href="https://www.instagram.com/realverseproptech/"
                 target="blank"
               >
-                <i className="fa-brands fa-instagram hover:text-red-400 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
+                <i className="fa-brands fa-instagram hover:text-red-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </a>
             </div>
             <h2 className="text-white mt-5 tracking-widest font-bold text-lg uppercase mb-5 font-header">

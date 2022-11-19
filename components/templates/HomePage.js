@@ -30,7 +30,6 @@ function HomePage() {
         fu: furnishing,
       },
     });
-    console.log(locationInput, priceRange, rooms, furnishing);
   };
   return (
     <>
@@ -40,7 +39,7 @@ function HomePage() {
           backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
         }}
       >
-        <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-cyan-900 via-gray-500 to-cyan-900 p-6 rounded-full opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">
+        <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-cyan-900 via-gray-500 to-cyan-900 p-6 rounded-md opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">
           Get Your Dream Home
         </h1>
         <div className="max-w-7xl px-4 py-5 mx-3 sm:p-8 rounded-md bg-white shadow-lg absolute -bottom-32 sm:-bottom-28 lg:-bottom-16">

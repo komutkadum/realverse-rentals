@@ -1,14 +1,19 @@
 /* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/alt-text */
-
+import { useState } from 'react';
 import { AMENITIES_ICON } from '../../lib/constants';
 import { formatAmount } from '../../lib/formatAmount';
 import { timeAgo } from '../../lib/timeAgo';
+import CustomCarousel from '../utility/CustomCarousel';
 
 /* eslint-disable @next/next/no-img-element */
 function ShowProperty({ data }) {
+  const [photoModal, setPhotoModal] = useState(false);
   return (
     <>
+      {photoModal && (
+        <CustomCarousel photos={data.photos} setPhotoModal={setPhotoModal} />
+      )}
       <main className="max-w-5xl mx-auto my-7 grid gap-y-4">
         <section className="sm:px-2 lg:px-0 justify-between items-center hidden sm:flex">
           <div className="grid gap-y-1 text-left">
@@ -47,7 +52,10 @@ function ShowProperty({ data }) {
           </div>
         </section>
         <section className="">
-          <div className="grid grid-rows-4 cursor-pointer grid-flow-col gap-2 p-2 bg-white shadow-lg">
+          <div
+            onClick={() => setPhotoModal(true)}
+            className="grid grid-rows-4 cursor-pointer grid-flow-col gap-2 p-2 bg-white shadow-lg"
+          >
             <div
               className="row-span-4 col-span-2 relative aspect-w-16 aspect-h-9 bg-cover bg-no-repeat bg-white bg-center"
               style={{ backgroundImage: `url('${data.photos[0]}')` }}

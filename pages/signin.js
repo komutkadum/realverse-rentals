@@ -6,7 +6,7 @@ function signin() {
   return (
     <>
       <Head>
-        <title>SignIn</title>
+        <title>Just Now - SignIn</title>
       </Head>
       <Signin />
     </>

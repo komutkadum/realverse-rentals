@@ -138,6 +138,7 @@ function Footer() {
               <a
                 href="https://www.facebook.com/profile.php?id=100075624316888"
                 target="blank"
+                aria-label="facebook"
               >
                 <i className="fa-brands fa-facebook hover:text-blue-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </a>
@@ -150,6 +151,7 @@ function Footer() {
               <a
                 href="https://www.instagram.com/realverseproptech/"
                 target="blank"
+                aria-label="Instagram"
               >
                 <i className="fa-brands fa-instagram hover:text-red-500 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </a>

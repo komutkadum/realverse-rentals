@@ -197,7 +197,7 @@ function HomePage() {
               It&#x27;s today or never.
             </span>
           </h2>
-          <p className="text-lg font-para mt-4 max-w-md mx-auto text-gray-400">
+          <p className="text-lg font-para mt-4 max-w-md mx-auto text-gray-500">
             Have it your way. Give yourself a chance to call something your
             home, a place of joy and warmth.
           </p>

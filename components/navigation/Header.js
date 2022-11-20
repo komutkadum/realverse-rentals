@@ -86,7 +86,7 @@ function Header() {
                       src={`${
                         session ? session.user.image : '/icons/user.png'
                       }`}
-                      alt={session && session.user.name}
+                      alt={session ? session.user.name : 'user'}
                     />
                   </button>
                 </div>

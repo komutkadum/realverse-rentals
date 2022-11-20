@@ -178,7 +178,7 @@ function Header() {
         <div
           className={`fixed ${
             mobileMenu ? 'grid' : 'hidden'
-          } bg-white ease-in-out duration-300 w-full h-full overflow-auto top-0  z-10`}
+          } bg-white ease-in-out duration-300 w-full animate__animated animate__fadeInLeft h-full overflow-auto top-0  z-10`}
           id="mobile-menu"
         >
           <button
@@ -188,6 +188,15 @@ function Header() {
           >
             X
           </button>
+          <Link href="/">
+            <button
+              className="p-2 w-10 h-10 focus:outline-none focus:ring-2 z-20 focus:ring-white text-white bg-gray-400 border absolute top-4 left-4 rounded-md"
+              id="close-mobile-menu-button"
+              onClick={() => setMobileMenu(false)}
+            >
+              <i className="fa-solid fa-house"></i>
+            </button>
+          </Link>
 
           <div className="space-y-1 px-4 relative">
             <div className="grid justify-center text-center py-6 mt-10 font-header tracking-wider gap-y-2">
@@ -205,6 +214,7 @@ function Header() {
                 <b>{session ? session.user.name : 'Not logged In'}</b>
               </span>
             </div>
+
             <Link href="/listproperty">
               <a className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium">
                 <i className="fa-solid fa-clipboard-list is-size-3"></i>
@@ -213,12 +223,12 @@ function Header() {
             </Link>
             <Link href="/profile">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
-                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Profile
+                <i className="fa-solid fa-user"></i>&nbsp;&nbsp;Profile
               </a>
             </Link>
             <Link href="/activity">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
-                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Activity
+                <i className="fa-solid fa-briefcase"></i>&nbsp;&nbsp;Activity
               </a>
             </Link>
             {session ? (

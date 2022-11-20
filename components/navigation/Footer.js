@@ -149,7 +149,7 @@ function Footer() {
                 <i className="fa-brands fa-youtube hover:text-rose-600 cursor-pointer text-xl transition-all ease-in-out duration-300 hover:scale-125"></i>
               </Link> */}
               <a
-                href="https://www.instagram.com/realverseproptech/"
+                href="https://www.instagram.com/realverse.rentals/"
                 target="blank"
                 aria-label="Instagram"
               >

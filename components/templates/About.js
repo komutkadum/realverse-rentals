@@ -60,7 +60,7 @@ function About() {
             <div>
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                src="/images/renter.jpg"
+                src="/images/renter.webp"
                 alt=""
               />
             </div>
@@ -70,7 +70,7 @@ function About() {
             <div className="hidden md:block">
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                src="/images/owner.jpg"
+                src="/images/owner.webp"
                 alt=""
               />
             </div>
@@ -92,7 +92,7 @@ function About() {
             <div className="block mt-6 md:hidden">
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                src="/images/owner.jpg"
+                src="/images/owner.webp"
                 alt=""
               />
             </div>
@@ -116,7 +116,7 @@ function About() {
             <div>
               <img
                 className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                src="/images/everyone.jpg"
+                src="/images/everyone.webp"
                 alt=""
               />
             </div>
@@ -168,7 +168,7 @@ function About() {
                   <div className="relative w-full h-48 max-h-full rounded shadow sm:h-auto">
                     <img
                       className="absolute object-cover w-full h-full rounded"
-                      src="/images/kadum.jpeg"
+                      src="/images/kadum.webp"
                       alt="Person"
                     />
                   </div>
@@ -198,7 +198,7 @@ function About() {
                   <div className="relative w-full h-48 max-h-full rounded shadow sm:h-auto">
                     <img
                       className="absolute object-cover w-full h-full rounded"
-                      src="/images/akshay.jfif"
+                      src="/images/akshay.webp"
                       alt="Person"
                     />
                   </div>

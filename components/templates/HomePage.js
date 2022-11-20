@@ -36,7 +36,7 @@ function HomePage() {
       <div
         className="max-w-full mb-16 py-56 sm:py-64 bg-cover flex justify-center bg-no-repeat relative bg-center"
         style={{
-          backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.jpg")',
+          backgroundImage: 'url("/images/kitchen-g0bb9e248f_1920.webp")',
         }}
       >
         <h1 className="text-xl text-center absolute top-28 sm:top-52 sm:text-3xl md:text-5xl bg-gradient-to-br from-cyan-900 via-gray-500 to-cyan-900 p-6 rounded-md opacity-70 font-para font-extrabold tracking-wider animate-bounce text-neutral-100">

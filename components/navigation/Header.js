@@ -196,7 +196,14 @@ function Header() {
                 className="w-36 h-36 rounded-full"
                 alt={session ? session.user.name : 'profile'}
               />
-              <b>{session ? session.user.name : 'Not logged In'}</b>
+              <span>
+                {session && (
+                  <>
+                    Logged in as : <br />
+                  </>
+                )}
+                <b>{session ? session.user.name : 'Not logged In'}</b>
+              </span>
             </div>
             <Link href="/listproperty">
               <a className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium">

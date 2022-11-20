@@ -1,11 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
-import Script from 'next/script';
-import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const router = useRouter();
   const { data: session, status } = useSession();
+
+  useEffect(() => {
+    setMobileMenu(false);
+  }, [router]);
 
   return (
     <>
@@ -20,6 +27,7 @@ function Header() {
                 className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
+                onClick={() => setMobileMenu(true)}
               >
                 <span className="sr-only">Open main menu</span>
                 <svg
@@ -60,6 +68,7 @@ function Header() {
                 <Link href="/">Realverse Rentals </Link>
               </div>
             </div>
+
             <div className="absolute hidden sm:flex inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <Link href="/listproperty">
                 <button type="button" className="primary_button">
@@ -167,63 +176,73 @@ function Header() {
 
         {/* <!-- Mobile menu, show/hide based on menu state. --> */}
         <div
-          className="fixed grid bg-white w-0 ease-in-out duration-300 h-full overflow-auto top-0 items-center z-10"
+          className={`fixed ${
+            mobileMenu ? 'grid' : 'hidden'
+          } bg-white ease-in-out duration-300 w-full h-full overflow-auto top-0  z-10`}
           id="mobile-menu"
         >
           <button
-            className="p-2 focus:outline-none focus:ring-2 focus:ring-white text-white bg-gray-400 border absolute top-4 right-4 rounded-md"
+            className="p-2 w-10 h-10 focus:outline-none focus:ring-2 z-20 focus:ring-white text-white bg-red-400 border absolute top-4 right-4 rounded-md"
             id="close-mobile-menu-button"
+            onClick={() => setMobileMenu(false)}
           >
-            <svg
-              className="h-6 w-6 text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            X
           </button>
+
           <div className="space-y-1 px-4 relative">
-            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+            <div className="grid justify-center text-center py-6 mt-10 font-header tracking-wider gap-y-2">
+              <img
+                src={session ? session.user.image : '/icons/user.png'}
+                className="w-36 h-36 rounded-full"
+                alt={session ? session.user.name : 'profile'}
+              />
+              <b>{session ? session.user.name : 'Not logged In'}</b>
+            </div>
             <Link href="/listproperty">
               <a className=" active:bg-indigo-700 bg-indigo-600 hover:bg-indigo-800 text-white  block px-3 py-4 rounded-md text-base font-medium">
                 <i className="fa-solid fa-clipboard-list is-size-3"></i>
                 &nbsp;&nbsp;List property
               </a>
             </Link>
-            <Link href="/signin">
+            <Link href="/profile">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
-                <i className="fa-solid fa-right-to-bracket"></i>
-                &nbsp;&nbsp;Login
-              </a>
-            </Link>
-            <Link href="/signin">
-              <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
-                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
+                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Profile
               </a>
             </Link>
             <Link href="/activity">
               <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
-                <div className="flex justify-between">
-                  <span>
-                    <i className="fa-solid fa-briefcase is-size-3"></i>
-                    &nbsp;&nbsp;Activity
-                  </span>
-                  <i className="fa-solid fa-caret-down"></i>
-                </div>
+                <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Activity
               </a>
             </Link>
+            {session ? (
+              <>
+                <a
+                  className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium"
+                  onClick={() => signOut()}
+                >
+                  <i className="fa-solid fa-right-to-bracket"></i>
+                  &nbsp;&nbsp;Logout
+                </a>
+              </>
+            ) : (
+              <>
+                <Link href="/signin">
+                  <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
+                    <i className="fa-solid fa-right-to-bracket"></i>
+                    &nbsp;&nbsp;Login
+                  </a>
+                </Link>
+                <Link href="/signin">
+                  <a className=" hover:bg-gray-700 hover:text-white block px-3 py-4 rounded-md text-base font-medium">
+                    <i className="fa-solid fa-user-plus"></i>&nbsp;&nbsp;Signup
+                  </a>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
-      <Script id="hello" src="/utils/functions.js" strategy="lazyOnload" />
+      {/* <Script id="hello" src="/utils/functions.js" strategy="lazyOnload" /> */}
     </>
   );
 }

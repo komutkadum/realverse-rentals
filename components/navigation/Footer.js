@@ -120,13 +120,13 @@ function Footer() {
                     </a>
                   </Link>
                 </li>
-                {/* <li className="mb-4 ">
-                  <Link href="/International">
+                <li className="mb-4 ">
+                  <Link href="/other-business">
                     <a className="hover:text-white transition-colors duration-200 hover:underline hover:underline-offset-8">
-                      International
+                      Other Business
                     </a>
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
           </li>
